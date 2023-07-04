@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 태그</title>
+</head>
+<body>
+    <div>사용자에게 값을 입력받을 때 사용</div>
+
+    <h2>text type</h2>
+    <!-- name : back에 정보를 전송할 때, name속성을 사용한다 -->
+    <!-- placeholer => input 에서만 사용가능, 빈공간 안내문구 -->
+    <input type="text" name="name" placeholder="이름을 입력해주세요."/>
+    <input type="text" name="phone" value="010-0000-0000"/>
+
+    <h2>button type</h2>
+    <input type="button" value="제출"/>
+    <button type="button">제출</button>
+
+    <br />
+
+    <h2>password type</h2>
+    <input type="password" name="pw"/>
+
+    <h2>checkbox type</h2>
+    <input type="checkbox" name="hobby" value="baseball"/> 야구
+    <input type="checkbox" name="hobby" value="football" checked/> 축구
+
+    <h2>radio type</h2>
+    <!-- 이름값이 같은 것들 중 하나만 체크하게 됨 -->
+    <input type="radio" name="gender" value="male" checked/> 남성
+    <input type="radio" name="gender" value="female" /> 여성
+
+    <h2>radio type2</h2>
+    <input type="radio" name="favorite" value="baseball" /> 야구
+    <input type="radio" name="favorite" value="football" id="football"/>
+    <label for="football">축구</label>
+    <input type="radio" name="favorite" value="basketball" id="basketball"/> 
+    <label for="basketball">농구</label>
+
+    <h2>date type</h2>
+    <input type="date" name="birth" />
+    <input type="datetime-local" name="birth-time" />
+
+    <h2>select tag</h2>
+    <select name="select-name">
+        <optgroup label="옵션1~2">
+            <option value="option1">옵션1</option>
+            <option value="option2" selected>옵션2</option>
+        </optgroup>
+        <optgroup lable="옵션3~4">
+            <option value="option3">옵션3</option>
+            <option value="option4" disabled>옵션4</option>
+        </optgroup>
+    </select>
+
+    <div>
+        <input type="text" name="email" value="lylebang9397@gmail.com" readonly/
+    </div>
+</body>
+</html>
