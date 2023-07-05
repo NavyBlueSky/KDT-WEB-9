@@ -63,6 +63,25 @@
         [value] {
             color: gold;
         }
+
+        :root {
+            /*속성값을 변수화
+            변수는 특정값을 저장하는 공간*/
+            --main-color : orange;
+            --main-bg-color : white;
+            --sub-color: rgb(228, 181, 93);
+            --font-size-big: 30px;
+        }
+
+        div {
+            color: var(--main-color);
+            font-weight: 900;
+            font-size: var(--font-size-big);
+            
+        }
+        p {
+            background-color: var(--main-bg-color);
+        }
     </style>
 </head>
 <body>
@@ -90,5 +109,9 @@
     <input type="text" value="HEROPY"/>
     <input type="password" value="1234"/>
     <input type="text" value="ABCD" disabled/>
+
+    <div>하이</div>
+    <p>바이</p>
+
 </body>
 </html>
