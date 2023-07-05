@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /*
         a:hover {
             color: red;
         }
@@ -22,11 +23,9 @@
             background-color: yellow;
             color: black;
         }
-        /*
         input:focus {
             background-color: salmon;
         }
-        */
         div > .name-input:focus {
             background-color: yellow;
         }
@@ -35,7 +34,34 @@
         }
         .fruits h3:last-child {
             color: orange;
-        /*뒤에서부터 해석*/
+        }
+        뒤에서부터 해석*/
+        .fruits *:nth-child(2){
+            color: red;
+        }
+        .fruits *:nth-child(2n+1){
+            background-color: green;
+            color: white;
+        }
+        .fruits *:not(span){
+            background-color: skyblue;
+        }
+
+        div.example::after {
+            content: "👍";
+        }
+        .example::before {
+            content: "🎶";
+        }
+
+        [type=text] {
+            background-color: green;
+        }
+        [disabled] {
+            color: aquamarine;
+        }
+        [value] {
+            color: gold;
         }
     </style>
 </head>
@@ -54,5 +80,15 @@
         <p>망고</p>
         <h3>사과</h3>
     </div>
+
+    <div class="example">
+        <!-- ::before content -->
+        바로가기
+        <!-- ::after content -->
+    </div>
+
+    <input type="text" value="HEROPY"/>
+    <input type="password" value="1234"/>
+    <input type="text" value="ABCD" disabled/>
 </body>
 </html>
