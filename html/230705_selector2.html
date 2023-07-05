@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:hover {
+            color: red;
+        }
+        a:active {
+            color: yellow;
+        }
+        button {
+            color:darkslategray;
+        }
+        button:hover {
+            background-color:navy;
+            color: aliceblue;
+        }
+        button:active {
+            background-color: yellow;
+            color: black;
+        }
+        /*
+        input:focus {
+            background-color: salmon;
+        }
+        */
+        div > .name-input:focus {
+            background-color: yellow;
+        }
+        .fruits span:first-child {
+            color: red;
+        }
+        .fruits h3:last-child {
+            color: orange;
+        /*뒤에서부터 해석*/
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com/" target="_blank">네이버</a>
+    <button type="button">제출</button>
+    <div>
+    <input class="name-input" type="text" name="name" placeholder="이름을 입력하세요"/>
+    </div>
+
+    <div class="fruits">
+        <div>바나나</div>
+        <span>딸기</span>
+        <span>수박</span>
+        <div>오렌지</div>
+        <p>망고</p>
+        <h3>사과</h3>
+    </div>
+</body>
+</html>

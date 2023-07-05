@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 공부</title>
+    <style>
+        /* *은 전체를 뜻함 */
+        /*
+        * {
+            color: red;
+        }
+        */
+        /*
+        li {
+            color: blue;
+        }
+        .berry {
+            background-color: lightblue;
+        }
+
+        #orange {
+            color:red;
+        }
+        */
+        /*
+        span.orange {
+            color: orange;
+        }
+        #a.orange.apple{
+
+        }
+        */
+        div > p {
+            color: navy;
+        }
+        div > ul > .orange{
+            color: orange;
+        }
+        div .orange {
+            background-color: rgb(189, 226, 215);
+        }
+        ul + div {
+            color: rgb(223, 76, 39);
+        }
+        .apple ~ li {
+            font-weight: 900;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>안녕</div>
+    <div>
+        <span>하세요</span>
+        <ul>
+            <li class="apple">사과</li>
+            <li>딸기</li>
+            <li class="orange">오렌지</li>
+        </ul>
+         <div>당근</div>
+        <p>토마토</p>
+        <span class="orange">오렌지</span>
+    </div>
+</body>
+</html>
