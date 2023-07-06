@@ -22,6 +22,23 @@
             border-top-color: black;
             border-top-style: solid;
             border-top-width: 10px;
+            border-radius: 30%;
+        }
+
+        .content-box {
+            box-sizing: content-box;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 20px;
+            display: none;
+        }
+
+        .border-box {
+            box-sizing: border-box;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 20px;
+            opacity: 0.5;
         }
     </style>
 </head>
@@ -29,6 +46,13 @@
     <div class="box border-1"></div>
     <br />
     <div class="box border-2"></div>
+    <br />
+    <br />
+    <br />
 
+    <div class="box content-box">abcd</div>
+    <br />
+    <br />
+    <div class="box border-box">abcd</div>
 </body>
 </html>

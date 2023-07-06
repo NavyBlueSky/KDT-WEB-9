@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        .flex-box {
+            display: flex;
+            justify-content: center;
+            height: 500px;
+            align-items: center;
+            flex-direction: row;
+            background-color: blanchedalmond;
+        }
+
+        .child-box {
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+
+        }
+    </Style>
+</head>
+<body>
+    <div class="flex-box">
+        <!-- display flex = 자식요소를 인라인블럭으로 만든다. -->
+        <!-- flex일때 사용가능하며 justify 가로가운데 정렬,  align세로가운데 정렬 -->
+        <div class="child-box"></div>
+        <div class="child-box"></div>
+        <div class="child-box"></div>
+    </div>
+    
+</body>
+</html>

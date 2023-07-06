@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            border: 15px solid red;
+            background-color: orange;
+        }
+
+        .content-box {
+            box-sizing: content-box;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 20px;
+        }
+
+        .border-box {
+            box-sizing: border-box;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="box content-box">abcd</div>
+    <br />
+    <br />
+    <div class="box border-box">abcd</div>
 </body>
 </html>
