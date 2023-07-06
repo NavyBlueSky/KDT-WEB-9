@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>230706수업</title>
+    <!-- <link href="https://fonts.google.com/share?selection.family=Noto%2BSans%2BKR:wght@100;300;400;500;700;900%7CNoto%2BSerif%2BKR:wght@200;300;400;600;700;900" -->
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;600;700;900&display=swap');
+        
+        @font-face {
+            font-family: 'TTWanjudaedunsancheB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        :root {
+            font-size: 20px;
+        }
+        main {
+            font-size: 20px;
+            text-align: right;
+        }
+        div {
+            font-weight: 700;
+        }
+
+        .font-px {
+            font-size: 20px;
+        }
+        .font-em {
+            font-size: 1.5em;
+            font-weight: 900;
+        }
+        .font-rem {
+            font-size: 1.5rem;
+            line-height: 2;
+            font-family: 'TTWanjudaedunsancheB', sans-serif;
+        }
+        .font-per {
+            font-size: 100%;
+            color: rgb(47, 101, 148);
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .inline-block
+    </style>
+</head>
+<body>
+    <div>안녕</div>
+    <main>
+        <div class="font-px">안녕하세요</div>
+        <!-- em 가장 가까운 부모사이즈의 값을 기준으로 배수 -->
+        <div class="font-em">안녕하십니까</div>
+        <div class="font-rem">네 안녕하세요</div>
+        <div class="font-per">안녕히가세요</div>
+    </main>
+    <a href="#">에이</a>
+
+    <!-- 블록요소 안에 인라인 요소-> 인라인요소는 크기만큼만 차지한다. -->
+    <div>
+        <span></span>
+    </div>
+
+    <div style="background-color: red; width: 100px">a</div>
+
+    <span style="background-color: blue;">b</span>
+
+    <div style="display: inline-block; background-color: aqua; width: 50px;">sdf</div>
+    
+</body>
+</html>
