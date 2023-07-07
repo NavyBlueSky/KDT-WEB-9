@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            height: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            align-content: flex-start;
+        }
+
+        .container-1 > div,
+        .container > div {
+            width: 100px;
+            height: 100px;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>        
+    <!-- flex->자기자신의 자식요소를 인라인블럭으로 만든다. -->
+    <div class="container">
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+    </div>
+
+    <div class="container-1" style="text-align: center;">
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+    </div>
+</body>
+</html>
