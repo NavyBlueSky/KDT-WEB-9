@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        body {
+            margin: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .parents {
+            position: relative;
+            background-color: aliceblue;
+            width: 500px;
+            height: 500px;
+        }
+        .r-1 {
+            left: 50px;
+            top: 30px;
+        }
+        .r-2 {
+            position: absolute;
+            background-color: blue;
+            bottom: 100px;
+            right: 50px;
+        }
+        .r-3 {
+            position: fixed;
+            background-color: yellow;
+            right: 100px;
+            top: 100px;
+        }
+    </Style>
+</head>
+<body>
+    <div class="parents">
+        <div class="r-1"></div>
+        <div class="r-2"></div>
+        <div class="r-3"></div>
+    </div> 
+</body>
+</html>
