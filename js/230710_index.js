@@ -35,29 +35,32 @@
 
 // console.log(`hi its ${name}`);
 
-let names = ['길동', '춘향', '짱구'];
+// let names = ['길동', '춘향', '짱구'];
 
-console.log(names.length);
+// console.log(names.length);
 
-names.push('짱아')
-console.log("push", names);
+// names.push('짱아')
+// console.log("push", names);
 
-names.pop();
-console.log(names);
-//배열의 마지막 값을 삭제.
+// names.pop();
+// console.log(names);
+// //배열의 마지막 값을 삭제.
 
-names.unshift("신형만");
-console.log("unshift", names);
-// 배열의 제일 앞에 값을 추가.
+// names.unshift("신형만");
+// console.log("unshift", names);
+// // 배열의 제일 앞에 값을 추가.
 
-names.shift()
-console.log("shift", names);
-// 배열의 제일 앞의 값을 삭제
+// names.shift()
+// console.log("shift", names);
+// // 배열의 제일 앞의 값을 삭제
 
-let index = names.indexOf("짱구");
-console.log(index);
-// 인덱스값을 찾아줌, 값이 없다면 -1을 반환
+// let index = names.indexOf("짱구");
+// console.log(index);
+// // 인덱스값을 찾아줌, 값이 없다면 -1을 반환
 
-let includes = names.includes("짱아");
-console.log(includes);
-// 값이 포함되어 있는지 ture or false
+// let includes = names.includes("짱아");
+// console.log(includes);
+// // 값이 포함되어 있는지 ture or false
+
+// 배열의 인덱싱, 인덱스는 0부터 시작
+// console.log(number[1])
