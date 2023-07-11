@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        sayHello() // 위치 상관없이 호출가능
+        // 함수 선언
+        function sayHello() {
+            console.log("hello its me");
+            //호출해야 본 로그가 실행된다.
+        }
+        sayHello()
+
+        // sayHello2() 실행 불가
+        //함수 표현
+        let sayHello2 = function() { //익명함수를 대입
+            console.log("hello from the other side")
+        }
+
+        sayHello2()
+    </script> -->
+
+
+</head>
+<body>
+    <!-- <script>
+        let number = 5;
+        // 매개변수란? 함수 외부에서 사용한 변수, 값 등을 
+        // 함수 내부로 전달하고 싶을 때 사용
+
+        // 반환값이란? 함수 내부에서 생성된 변수, 값 등을
+        // 함수 외부로 전달하고 싶을 때 사용
+
+        // 1매개변수가 없고, 반환값도 없음
+        function aaa() {
+            console.log("aaa")
+        }
+        aaa();
+
+        // 2매개변수가 없고, 반환값이 있음
+        function bbb() {
+            return "bbb"
+        }
+        console.log(bbb())
+        let str = bbb()
+
+        // 3매개변수가 있고, 반환값이 없음.
+        let number1 = 5;
+        let number2 = 3;
+        function ccc( num1, num2 ) {
+            console.log(num1 + num2)
+        }
+        ccc(5, 3)
+        ccc(number1, number2)
+        ccc(number1, "hello")
+
+        // 4매개변수 있고, 반환값이 있음. (매개변수1개, 반환값 있음)
+        let num11 = 5;
+        let num22 = 7;
+        function ddd( num1){
+            return num1 + 5
+        }
+        ddd(5) // 10
+        let num = ddd(5)
+        console.log(num)
+
+        let sum = (num1, num2) => {
+            let num = num1 + num2;
+            let mul = num * 5;
+            return mul;
+        }
+        let sumMul = sum(3, 6);
+        console.log(sumMul)
+    </script> -->
+
+    <script>
+        function sayHello(){
+            alert("안녕하세요?");
+        }
+    </script>
+
+
+    <button onclick="sayHello()">안녕?</button>
+    <div style="border: 1px solid black; cursor: pointer;" onclick="sayHello()">
+        안녕?
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num11 = prompt('첫 번째 숫자') // 여기서 그냥 형변환하자.
+        let num22 = prompt('두 번째 숫자')
+
+        function plu(num1, num2) {
+            let number1 = Number(num1);
+            let number2 = Number(num2);
+            let plus = number1 + number2;
+            alert(plus);
+        }
+
+        function mi(num1, num2) {
+            let number1 = Number(num1);
+            let number2 = Number(num2);
+            let minus = number1 - number2;
+            alert(minus);
+        }
+
+        function mul(num1, num2) {
+            let number1 = Number(num1);
+            let number2 = Number(num2);
+            let multi = number1 * number2;
+            alert(multi);
+        }
+
+        function di(num1, num2) {
+            let number1 = Number(num1);
+            let number2 = Number(num2);
+            let dib = number1 / number2;
+            alert(dib);
+        }
+
+    </script>
+    <button onclick="plu(num11, num22)">더하기</button>
+    <button onclick="mi(num11, num22)">빼기</button>
+    <button onclick="mul(num11, num22)">곱하기</button>
+    <button onclick="di(num11, num22)">나누기</button>
+
+</body>
+</html>
