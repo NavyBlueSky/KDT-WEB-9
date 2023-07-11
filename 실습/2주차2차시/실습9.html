@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sum = 0;
+        for(let n=0; n<100; n++) {
+            while((n % 2 == 0) || (n % 3 == 0)) {
+                sum += n;
+                break;
+            }
+        }
+        console.log(sum)
+
+    </script>
+    
+</body>
+</html>
