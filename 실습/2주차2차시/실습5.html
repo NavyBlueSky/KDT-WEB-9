@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let age = Number(prompt("나이를 입력하세요"))
+        let gender = prompt("성별을 입력하세요 (남/여)")
+        if (age >= 20) {
+            if (gender == "남") {
+                alert("성인 남성")
+            }
+            else if (gender == "여") {
+                alert("성인 여성")
+            }
+        }
+        else if (17<= age) {
+            if (gender == "남") {
+                alert("고등 남학생")
+            }
+            else if (gender == "여") {
+                alert("고등 여학생")
+            }
+        }
+        else if (14<= age) {
+            if (gender == "남") {
+                alert("중등 남학생")
+            }
+            else if (gender == "여") {
+                alert("중등 여학생")
+            }
+        }
+        else if (8<= age) {
+            if (gender == "남") {
+                alert("초등 남학생")
+            }
+            else if (gender == "여") {
+                alert("초등 여학생")
+            }
+        }
+        else {
+            if (gender == "남") {
+                alert("남아")
+            }
+            else if (gender == "여") {
+                alert("여아")
+            }
+        }
+        // 성별을 바깥쪽에 하면 더 짧아진다.
+    </script>
+    
+</body>
+</html>
