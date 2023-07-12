@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid;
+          }
+          th, td {
+            border: 1px solid;
+          }
+    </style>
+</head>
+<body>
+    <div>방명록입니다.</div>
+    <div>작성자<input type="text" name="name" id="user"></div>
+    <div>내용<input type="text" name="content" id="content"></div>
+    <div></div>
+    <button onclick="addContent()">작성</button>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+            <!-- <tr>
+            <td>1</td>
+            <td>김규리</td>
+            <td>여러분 반가워요</td>
+            <td>2022-7-2 15 : 3</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>김규리</td>
+            <td>여러분 반가워요</td>
+            <td>2022-7-2 15 : 3</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>홍길동</td>
+            <td>안뇽!</td>
+            <td>2022-7-2 15 : 4</td>
+        </tr> -->
+
+    </table>
+    <script>
+        let index = 1;
+        function addContent() {
+            let table = document.querySelector("table");
+
+            let tr = document.createElement("tr");
+
+            let NumTd = document.createElement("td")
+            NumTd.innerText = index;
+
+            let userTd = document.createElement("td")
+            let user1 = document.getElementById("user").value
+            userTd.innerText = user1;
+
+            let contentTd = document.createElement("td")
+            let content1 = document.getElementById("content").value
+            contentTd.innerText = content1;
+
+            let dateTd = document.createElement("td")
+            let date1 = new Date()
+            let date2 = `${date1.getFullYear()}-${date1.getMonth()+1}-${date1.getDate()}`
+            dateTd.innerText = date2;
+
+            tr.appendChild(NumTd)
+            tr.appendChild(userTd)
+            tr.appendChild(contentTd)
+            tr.appendChild(dateTd)
+
+            table.appendChild(tr)
+            index++;
+
+        }
+    </script>
+    
+</body>
+</html>

@@ -35,6 +35,7 @@
     </div>
 
     <button type="button" onclick="createGreenBox()">나와라</button>
+    <button type="button" onclick="removeBox()">가라</button>
 
     <!-- <input type="text" name="id" />
 
@@ -86,10 +87,21 @@
             //container.appendChild(createBox) 
             // appendchild안에는 노드만 올수있음
 
-            container.append("안녕")
-
+            //container.append("안녕")
             // append는 매개변수로 문자열과 노드객체를 모두 받을 수 있는 반면,
             // appendchild 는 매개변수로 노드객체만 받을 수 있다.
+
+            container.prepend(createBox)
+            // 부모요소에 첫째 자식으로 괄호 안의 요소를 추가
+
+            orangeBox.before(createBox)
+        }
+
+        function removeBox(){
+            let orangeBox = document.getElementById("orange")
+            //orangeBox.remove()
+
+            container.removeChild(orangeBox)
         }
 
         // redBox.setAttribute("class", "box orange")
