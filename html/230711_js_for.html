@@ -77,13 +77,22 @@
         let numbersLength = numbers.length;
         let fruitsLength = fruits.length;
 
-        for (let number of numbers) {
-            console.log(number);
-        }
-        
         for (let fruit of fruits) {
         console.log(fruit);
         }
+
+        // foreach는 함수의 매개변수로 함수를 받음 
+        fruits.forEach(function (data, index, arr) {
+            console.log("data: ", data)
+            console.log("index: ", index)
+            console.log("arr: ", arr)
+        })
+
+        fruits.forEach((data, index, arr) => {
+            console.log("data: ", data)
+            console.log("index: ", index)
+            console.log("arr: ", arr)
+        })
     </script>
     
 </body>
