@@ -10,6 +10,7 @@
         .box {
             width: 100px;
             height: 100px;
+            cursor: pointer;
         }
         .red {
             background-color: red;
@@ -17,14 +18,37 @@
         .orange {
             background-color: orange;
         }
+        .yellow {
+            background-color: yellow;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .purple {
+            background-color: purple;
+        }
     </style>
 </head>
 <body>
-    <div class="box orange"></div>
-    <button type="button" onclick="switchColor()">바꾸기</button>
-    <script>
+    <div class="box red" onclick="switchColor()"></div>
+    <!-- <script>
         function switchColor() {
-            $(".box").switchClass("orange", "red", 1000) //1000=1초
+            if($(".box").hasClass("red")){
+
+            }
+        }
+    </script> -->
+    <script>
+        const colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+        let num = 0;
+        function switchColor2() {
+            $(".box").switchClass(colors[num], colors[num+1])
+            num++;
+
+            if (num === colors.length - 1) num = 0;
         }
     </script>
 </body>
