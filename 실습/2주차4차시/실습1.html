@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        section {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        div {
+            position: relative;
+        }
+        img {
+            width: 250px;
+            height: 250px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="image1"><img src="./골라.png"></div>
+        <div>
+            <button onclick="apple()">사과</button>
+            <button onclick="banana()">바나나</button>
+            <button onclick="grape()">포도</button>
+            <button onclick="peach()">복숭아</button>
+        </div>
+    </section>
+
+    <script>
+        function apple() {
+            $("img").attr("src", "./사과.jpg")
+        }
+        function banana() {
+            $("img").attr("src", "./바나나.jpg")
+        }
+        function grape() {
+            $("img").attr("src", "./포도.jfif")
+        }
+        function peach() {
+            $("img").attr("src", "./복숭아.jpg")
+        }
+
+    </script>
+
+    <!-- <section>
+        
+        <div>
+            <div class="image1"><img src="./골라.png"></div>
+            <button class="apple" onclick="change()">사과</button>
+            <button class="banana" onclick="change()">바나나</button>
+            <button class="grape" onclick="change()">포도</button>
+            <button class="peach" onclick="change()">복숭아</button>
+        </div>
+    </section>
+
+    <script>
+        function change() {
+            $(".apple").attr("src", "./사과.jpg")
+        }
+
+    </script> -->
+    
+</body>
+</html>
