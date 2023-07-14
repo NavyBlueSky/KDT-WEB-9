@@ -8,14 +8,21 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <style>
         .container {
-            height: 2000px;
+            text-align: center;
+            display: flex;
+            width: 700px;
+            height: 700px;
+        }
+        td {
+            width: 50px;
+            height: 80px;
         }
 
     </style>
 </head>
 <body>
-    <div>날짜: <input type="text" name="date1" id="date1"></div>
-    <div>내용: <input type="text" name="content1" id="content1"></div>
+    <div>날짜: <input type="text" id="date1"></div>
+    <div>내용: <input type="text" id="content1"></div>
     <div><button type="button">작성</button></div>
     <div>
         <div>2023년 7월</div>
@@ -88,14 +95,12 @@
     <script>
         window.addEventListener("load", function() {})
 
-        $("td").on("hover", function() {
-        })
-
         let td;
+
         $("td").on("click", function () {
-            $("#date1").val($(this).text());
+            $("#date1").val(`${$(this).text()}`)
             td = this;
-            console.log(td);
+            console.log(td)
             //console.log($(this).text() );
 
         })
