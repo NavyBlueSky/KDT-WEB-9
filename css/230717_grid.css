@@ -1,0 +1,78 @@
+.container {
+    display: grid;
+    height: 500px;
+    /* minmax(최소, 최대) */
+    /* grid-template-columns: 200px 200px 200px;  아래와 같은 뜻*/ 
+    /* grid-template-columns: repeat(3, 200px); */
+    /* grid-template-columns: repeat(3, 1fr); fraction, 공간비율 */
+    /* grid-template-columns: repeat(3, minmax(100px, auto)); */
+    /* grid-template-rows: repeat(3, 200px); */
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    /* row-gap: 20px;
+    column-gap: 10px; */
+    /* gap: 20px 10px; */
+    gap: 10px;
+    /* justify-items: center;
+    align-items: center; 둘을 합친 명령 = place-items*/
+    /* place-items: center; */
+    /* place-items: end end; */
+    /* ~~~items: item 요소(자식요소)가 존재할수 있는 영역내에서 정렬 */
+
+    /* justify-content: center;
+    align-content: center; */
+    /* place-content: center; */
+    /* ???-content: container 영역 내에서 통채로 정렬한다. */
+
+    grid-template-areas: 
+    'header header .' /* 점으로 빈자리를 대체할 수 있다*/
+    'nav main aside'
+    'footer footer footer';
+}
+.item {
+    /* width: 100px;
+    height: 100px; */
+}
+.red {
+    grid-area: header;
+    /* order: 1; */
+    background-color: red;
+    /* grid-column: 1 / span 3; */
+    /* grid-column: 1 / 4;  위 아래와 같음*/
+    /* grid-column: auto / span 3; */
+    /* place-self: center; */
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
+}
+.orange {
+    grid-area: nav;
+    /* order: 2; */
+    background-color: orange;
+    /* grid-row: 2 / 4; */
+    /* grid-row: auto / span 2; */
+    /* place-self: center; */
+}
+.yellow {
+    grid-area: main;
+    background-color: yellow;
+    /* justify-self: center;
+    align-self: center; */
+    /* place-self: center; */
+}
+.green {
+    grid-area: aside;
+    background-color: green;
+    /* width: 500px;
+    z-index: 1; */
+}
+.blue {
+    grid-area: footer;
+    background-color: blue;
+}
+.navy {
+    background-color: navy;
+}
+.purple {
+    /* order: -1; */
+    background-color: purple;
+}
