@@ -1,14 +1,16 @@
-/* Googlefont Poppins CDN Link */
+/* 구글폰트 Poppins CDN 링크 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
 }
+
 body{
   min-height: 100vh;
 }
+
 nav{
   position: fixed;
   top: 0;
@@ -16,9 +18,10 @@ nav{
   width: 100%;
   height: 100%;
   height: 70px;
-  background: #3E8DA8;
+  background: #c5f0ff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   z-index: 99;
+  font-family: 'Poppins', sans-serif;
 }
 nav .navbar{
   height: 100%;
@@ -32,10 +35,10 @@ nav .navbar{
   padding: 0 50px;
 }
 .navbar .logo a{
-  font-size: 30px;
-  color: #fff;
+  /* font-size: 30px;
+  color: #000000;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 600; */
 }
 nav .navbar .nav-links{
   line-height: 70px;
@@ -56,7 +59,7 @@ nav .navbar .links li a{
   height: 100%;
   text-decoration: none;
   white-space: nowrap;
-  color: #fff;
+  color: #000000;
   font-size: 15px;
   font-weight: 500;
 }
@@ -72,7 +75,7 @@ nav .navbar .links li .arrow{
   line-height: 70px;
   text-align: center;
   display: inline-block;
-  color: #fff;
+  color: #000000;
   transition: all 0.3s ease;
 }
 nav .navbar .links li .sub-menu{
@@ -80,7 +83,7 @@ nav .navbar .links li .sub-menu{
   top: 70px;
   left: 0;
   line-height: 40px;
-  background: #3E8DA8;
+  background: #c5f0ff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 4px 4px;
   display: none;
@@ -95,7 +98,7 @@ nav .navbar .links li:hover .js-sub-menu{
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .navbar .links li .sub-menu a{
-  color: #fff;
+  color: #000000;
   font-size: 15px;
   font-weight: 500;
 }
@@ -128,7 +131,7 @@ nav .navbar .links li:hover .js-sub-menu{
   line-height: 40px;
   text-align: center;
   font-size: 22px;
-  color: #fff;
+  color: #000000;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -139,7 +142,7 @@ nav .navbar .links li:hover .js-sub-menu{
   top: 80px;
   height: 60px;
   width: 300px;
-  background: #3E8DA8;
+  background: #c5f0ff;
   border-radius: 6px;
   opacity: 0;
   pointer-events: none;
@@ -149,14 +152,14 @@ nav .navbar .links li:hover .js-sub-menu{
   top: 65px;
   opacity: 1;
   pointer-events: auto;
-  background: #3E8DA8;
+  background: #c5f0ff;
 }
 .search-box .input-box::before{
   content: '';
   position: absolute;
   height: 20px;
   width: 20px;
-  background: #3E8DA8;
+  background: #c5f0ff;
   right: 10px;
   top: -6px;
   transform: rotate(45deg);
@@ -211,7 +214,7 @@ nav .navbar .links li:hover .js-sub-menu{
     display: block;
     max-width: 270px;
     width: 100%;
-    background:  #3E8DA8;
+    background:  #c5f0ff;
     line-height: 40px;
     padding: 20px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -225,12 +228,12 @@ nav .navbar .links li:hover .js-sub-menu{
   }
   .sidebar-logo .logo-name{
     font-size: 25px;
-    color: #fff;
+    color: #000000;
   }
     .sidebar-logo  i,
     .navbar .bx-menu{
       font-size: 25px;
-      color: #fff;
+      color: #000000;
     }
   nav .navbar .links{
     display: block;

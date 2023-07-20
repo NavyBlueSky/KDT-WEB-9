@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
-* {
+footer {
   font-family: Open Sans;
 }
 
@@ -38,7 +38,7 @@ section {
 	width: 40%;
 }
 
-/* The company logo */
+/* 속성 */
 
 .footer-distributed h3{
 	color:  #ffffff;
@@ -100,7 +100,7 @@ section {
 .footer-distributed .footer-center p{
 	display: inline-block;
 	color: #ffffff;
-  font-weight:400;
+  	font-weight:400;
 	vertical-align: middle;
 	margin:0;
 }
@@ -174,9 +174,9 @@ section {
 	margin-bottom: 5px;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
+/* 푸터 반응형 미디어 */
 
-@media (max-width: 880px) {
+@media (max-width: 1000px) {
 
 	.footer-distributed{
 		font: bold 14px sans-serif;

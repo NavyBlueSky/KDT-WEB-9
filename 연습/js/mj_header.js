@@ -1,4 +1,4 @@
-// search-box open close js code
+// 검색창 동작 js code
 let navbar = document.querySelector(".navbar");
 let searchBox = document.querySelector(".search-box .bx-search");
 // let searchBoxCancel = document.querySelector(".search-box .bx-x");
@@ -12,7 +12,7 @@ searchBox.addEventListener("click", ()=>{
   }
 });
 
-// sidebar open close js code
+// 사이트 가로 축소시 메뉴 열고 닫기 js code
 let navLinks = document.querySelector(".nav-links");
 let menuOpenBtn = document.querySelector(".navbar .bx-menu");
 let menuCloseBtn = document.querySelector(".nav-links .bx-x");
@@ -24,7 +24,7 @@ navLinks.style.left = "-100%";
 }
 
 
-// sidebar submenu open close js code
+// 가로 축소 드롭다운 js code
 let htmlcssArrow = document.querySelector(".htmlcss-arrow");
 htmlcssArrow.onclick = function() {
  navLinks.classList.toggle("show1");
