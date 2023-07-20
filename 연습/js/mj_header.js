@@ -25,15 +25,15 @@ navLinks.style.left = "-100%";
 
 
 // 가로 축소 드롭다운 js code
-let htmlcssArrow = document.querySelector(".htmlcss-arrow");
-htmlcssArrow.onclick = function() {
+let mainsecArrow = document.querySelector(".mainsec-arrow");
+mainsecArrow.onclick = function() {
  navLinks.classList.toggle("show1");
 }
-let moreArrow = document.querySelector(".more-arrow");
-moreArrow.onclick = function() {
- navLinks.classList.toggle("show2");
-}
-let jsArrow = document.querySelector(".js-arrow");
-jsArrow.onclick = function() {
+// let moreArrow = document.querySelector(".more-arrow");
+// moreArrow.onclick = function() {
+//  navLinks.classList.toggle("show2");
+// }
+let subsecArrow = document.querySelector(".subsec-arrow");
+subsecArrow.onclick = function() {
  navLinks.classList.toggle("show3");
 }
