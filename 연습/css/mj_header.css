@@ -34,12 +34,12 @@ nav .navbar{
   /* background: red; */
   padding: 0 50px;
 }
-.navbar .logo a{
-  /* font-size: 30px;
+/* .navbar .logo a{
+  font-size: 30px;
   color: #000000;
   text-decoration: none;
-  font-weight: 600; */
-}
+  font-weight: 600;
+} */
 nav .navbar .nav-links{
   line-height: 70px;
   height: 100%;
@@ -105,9 +105,9 @@ nav .navbar .links li:hover .subsec-sub-menu{
 .navbar .links li .sub-menu .more-arrow{
   line-height: 40px;
 }
-.navbar .links li .mainsec-more-sub-menu{
-  /* line-height: 40px; */
-}
+/* .navbar .links li .mainsec-more-sub-menu{
+  line-height: 40px;
+} */
 .navbar .links li .sub-menu .more-sub-menu{
   position: absolute;
   top: 0;
@@ -201,9 +201,9 @@ nav .navbar .links li:hover .subsec-sub-menu{
   }
 }
 @media (max-width:800px){
-  nav{
-    /* position: relative; */
-  }
+  /* nav{
+    position: relative;
+  } */
   .navbar .bx-menu{
     display: block;
   }
