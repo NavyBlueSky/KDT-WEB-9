@@ -11,7 +11,6 @@ app.use('/public', express.static('./public'));
 
 app.get('/', (req, res) => {
     res.render('prac4', {
-
     });
 });
 
