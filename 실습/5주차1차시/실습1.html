@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        setTimeout(function () {
+            document.body.style.backgroundColor = 'red'
+            setTimeout(function() {
+                document.body.style.backgroundColor = 'orange'
+                setTimeout(function() {
+                    document.body.style.backgroundColor = 'yellow'
+                    setTimeout(function() {
+                        document.body.style.backgroundColor = 'green'
+                    }, 1000);
+                },1000);
+            }, 1000);
+        }, 1000);
+        */
+
+        function back1() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function() {
+                    document.body.style.backgroundColor = 'red';
+                    console.log(1)
+                    resolve();
+                }, 1000);
+            });
+        }
+        function back2() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function() {
+                    document.body.style.backgroundColor = 'orange';
+                    console.log(2)
+                    resolve();
+                }, 1000);
+            });
+        }
+        function back3() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function() {
+                    document.body.style.backgroundColor = 'yellow';
+                    console.log(3)
+                    resolve();
+                }, 1000);
+            });
+        }
+        function back4() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function() {
+                    document.body.style.backgroundColor = 'green';
+                    console.log(4)
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        back1().then(back2).then(back3).then(back4)
+
+    </script>
+    
+</body>
+</html>
