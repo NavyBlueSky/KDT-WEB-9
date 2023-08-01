@@ -11,6 +11,10 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 //router
+app.get('/', (req, res) => {
+    res.render('index', {title: 'Get과 Post 실습'})
+});
+
 app.get('/get', (req, res) => {
     // console.log(req.body);
     // res.send('hello');
