@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <h4>GET요청</h4>
+    <form action="/getForm" method="GET">
+        <input type="text" placeholder="id입력" name="id" required />
+        <input type="password" placeholder="pw입력" name="pw" required />
+        <button type="submit">제출</button>
+    </form>
+    <hr />
+    <h4>POST요청</h4>
+    <form action="/postForm" method="POST">
+        <input type="text" placeholder="id입력" name="id" value="postid" readonly />
+        <!-- FORM의 유효성 검사는 자바스크립트로 다시 해야한다. f12에서 조작될 수 있음 -->
+        <!-- 하지않으면 서버에 쓰레기값이 차게됨, 오류 유발 -->
+        <input type="password" placeholder="pw입력" name="pw" pattern="^([a-z0-9]){8, 12}$" /><br />
+        <input type="email"><br />
+        <input type="radio"><br />
+        <input type="checkbox"><br />
+        <input type="tel"><br />
+        <input type="number"><br />
+        <input type="date"><br />
+        <input type="time"><br />
+        <input type="color"><br />
+        <button type="submit">제출</button>
+    </form>
+</body>
+</html>

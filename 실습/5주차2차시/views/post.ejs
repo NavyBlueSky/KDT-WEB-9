@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <h4>POST요청</h4>
+    <form action="/postForm" method="POST">
+        <span>이름 <input type="text" name="name"></span>
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" id="man" name="gender" value="남성">
+            <label for="man">남성</label>
+            <input type="radio" id="woman" name="gender" value="여성">
+            <label for="woman">여성</label>
+        </fieldset>
+        <fieldset>
+            <legend>생년월일</legend>
+            <input type="date" name="date" />
+        </fieldset>
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" id="trip" name="hobby" value="여행">
+            <label for="trip">여행</label>
+            <input type="checkbox" id="fa" name="hobby" value="패션">
+            <label for="fa">패션</label>
+            <input type="checkbox" id="food" name="hobby" value="음식">
+            <label for="food">음식</label>
+        </fieldset>
+        <fieldset>
+            <legend>선택</legend>
+            <label for="color">좋아하는 색상</label>
+            <input type="color" name="color"><br />
+            <label for="number">좋아하는 숫자</label>
+            <input type="number" name="number"><br />
+        </fieldset>
+        <button type="submit">회원가입</button>
+    </form>
+</body>
+</html>
