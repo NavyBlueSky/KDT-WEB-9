@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <h4>GET요청</h4>
+    <form name="register">
+        <span>이름 <input type="text" name="name"></span>
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" id="man" name="gender" value="남성">
+            <label for="man">남성</label>
+            <input type="radio" id="woman" name="gender" value="여성">
+            <label for="woman">여성</label>
+        </fieldset>
+        <fieldset>
+            <legend>생년월일</legend>
+            <input type="date" name="date" />
+        </fieldset>
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" id="trip" name="hobby" value="여행">
+            <label for="trip">여행</label>
+            <input type="checkbox" id="fa" name="hobby" value="패션">
+            <label for="fa">패션</label>
+            <input type="checkbox" id="food" name="hobby" value="음식">
+            <label for="food">음식</label>
+        </fieldset>
+        <button type="button" onclick="axiosGet()">axios get 회원가입</button>
+    </form>
+
+    <br />
+    <div class="result"></div>
+    <script>
+        const resultBox = document.querySelector('.result');
+
+        function axiosGet() {
+            const hobby = 'input[type="checkbox"]:checked';
+            const selectedEls = document.querySelectorAll(hobby);
+            
+            // 선택된 목록에서 value 찾기
+            let hobbies = [];
+            selectedEls.forEach((el) => {
+              hobbies.push(el.value);
+            });
+
+            console.log('axios get');
+            const form = document.forms['register'];
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+                date: form.date.value,
+                hobby: hobbies,
+            }  
+            axios({
+                method: 'GET',
+                url: 'axios',
+                params: data
+            }).then((res) => {
+                console.log('res', res);
+                resultBox.textContent = `GET /axios 회원가입 완료! 
+                ${res.data.name}님의 성별은 ${res.data.gender}입니다.
+                생년월일은 ${res.data.date}이며 관심사는 ${res.data.hobby} 입니다.`
+                resultBox.style.color = 'navy';
+            });
+        }
+    </script>
+
+</body>
+</html>
