@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>회원가입 + 파일 업로드 실습</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <span>아이디: <input type="text" name="userid" /></span><br />
+        <span>비밀번호: <input type="password" name="userpw" /></span><br />
+        <span>이름: <input type="text" name="username" /></span><br />
+        <span>나이: <input type="text" name="userage" /></span><br />
+        <input type="file" id="dynamic-file" /><br />
+        <button type="button submit" onclick="fileupload()">회원가입</button>
+    </form>
+    
+    <div class="result"></div>
+    <script>
+        const resultBox = document.querySelector('.result');
+
+        function fileupload() {
+            const file = document.getElementById('dynamic-file');
+            console.log(file.files[0]);
+            const title = document.getElementById('title');
+
+            const formData = new FormData();
+            formData.append('dynamic-file', file.files[0]);
+
+            axios({
+                method: 'POST',
+                url: '/dynamicFile',
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }).then((res) => {
+                console.log('res', res);
+                resultBox.innerHTML = `<div><img src=${res.data.path}></div>`;
+                resultBox.textContent = `회원가입 성공 반갑습니다 ${res.data.username}`;
+            });
+        }
+    </script>
+
+    
+</body>
+</html>
