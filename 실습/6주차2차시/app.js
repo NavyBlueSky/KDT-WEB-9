@@ -7,21 +7,17 @@ app.set('views', './views');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-
-// app.get('/', (req, res) => {
-//     res.render('index');
-// });
-
-// 라우터
-// const indexRouter = require('./routes');
-// app.use('/', indexRouter);
-
-const visitorRouter = require('./routes/visitor');
 app.get('/', (req, res) => {
     res.render('index');
 });
-// localhost:8000/visitor
-app.use('/visitor', visitorRouter);
+
+app.get('/signup', (req, res) => {
+    res.render('signup');
+})
+
+app.get('/signin', (req, res) => {
+    res.render('signin');
+})
 
 app.use('*', (req, res) => {
     res.render('404');
