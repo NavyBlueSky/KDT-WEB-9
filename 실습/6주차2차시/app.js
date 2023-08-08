@@ -11,13 +11,13 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/signup', (req, res) => {
+app.post('/signup', (req, res) => {
     res.render('signup');
-})
+});
 
-app.get('/signin', (req, res) => {
+app.post('/signin', (req, res) => {
     res.render('signin');
-})
+});
 
 app.use('*', (req, res) => {
     res.render('404');

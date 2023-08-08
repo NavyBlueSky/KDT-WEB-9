@@ -4,24 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <h4>회원가입</h4>
-    <form name="signup-form">
-        <fieldset>
-            <span>아이디 <input type="text" name="userid"></span>
-            <br />
-            <span>이름 <input type="text" name="name"></span>
-            <br />
-            <span>비밀번호 <input type="password" name="pw"></span>
-        </fieldset>
-        <button type="button" onclick="postSignup()">회원가입</button>
+    <form name="signup_form">
+        <label for="userid">ID</label>
+        <input type="text" name="userid"><br />
+        <label for="name">이름</label>
+        <input type="text" name="name"><br/>
+        <label for="pw">PW</label>
+        <input type="password" name="pw"><br />
+        <button type="button" onclick="signup()">회원가입</button>
     </form>
 
     <script>
-        function postSignup() {
-            
-        };
+        function signup() {
+            console.log('register user');
+            const form = document.forms['signup_form'];
+            axios({
+                method: 'POST',
+                url: '/visitor/signup',
+                data: {
+                    name: form.name.value,
+                    comment: form.comment.value,
+                },
+            }).then((res) => {
+                console.log('res', res);
+                const html = `
+                <tr id=tr_${res.data.id}>
+                    <td>${res.data.id}</td>
+                    <td>${res.data.name}</td>
+                    <td>${res.data.comment}</td>
+                    <td><button type="button">수정</button></td>
+                    <td><button type="button">삭제</button></td>
+                </tr>`;
+                body.insertAdjacentHTML('beforeend', html);
+            });
+        }
     </script>
 </body>
 </html>
