@@ -16,6 +16,7 @@ conn.connect((err) => {
     console.log('connect');
 });
 
+//
 exports.post_signup = (data, callback) => {
     const query = `INSERT INTO user (userid, pw, name) VALUES ('${data.userid}', '${data.pw}', '${data.name}')`;
     conn.query(query, (err, rows) => {

@@ -1,20 +1,22 @@
 const User = require('../model/User');
 
+// routes
 exports.index = (req, res) => {
     res.render('index');
 };
 exports.signup = (req, res) => {
     res.render('signup');
 };
+exports.signin = (req, res) => {
+    res.render('signin');
+};
+
+// from model
 exports.post_signup = (req, res) => {
     //model
     User.post_signup(req.body, () => {
         res.send({ result: true });
     });
-};
-
-exports.signin = (req, res) => {
-    res.render('signin');
 };
 
 exports.post_signin = (req, res) => {
