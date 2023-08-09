@@ -1,15 +1,29 @@
 const User = require('../model/User');
 
-exports.main = (req, res) => {
+exports.index = (req, res) => {
     res.render('index');
 };
-
-exports.login = (req, res) => {
-    User.login((result) => {
-        res.render('login', {data: result});
+exports.signup = (req, res) => {
+    res.render('signup');
+};
+exports.post_signup = (req, res) => {
+    //model
+    User.post_signup(req.body, () => {
+        res.send({ result: true });
     });
 };
 
-exports.Signup = (req, res) => {
-    User.Signup((result));
+exports.signin = (req, res) => {
+    res.render('signin');
+};
+
+exports.post_signin = (req, res) => {
+    //model
+    User.post_signin(req.body, (result) => {
+        if (result.length > 0) {
+            res.send({ result: true, data: result[0] });
+        } else {
+            res.send({ result: false, data: null });
+        }
+    });
 };
