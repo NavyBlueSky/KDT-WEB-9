@@ -1,6 +1,6 @@
 //const User = require('../model/User');
 const { User } = require('../models');
-const { Op } = require('sequelize');
+const { Op } = require('sequelize'); // Op 기능사용
 
 exports.index = (req, res) => {
     res.render('index');
