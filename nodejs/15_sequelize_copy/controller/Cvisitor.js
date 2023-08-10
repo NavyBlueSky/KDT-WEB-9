@@ -13,7 +13,9 @@ exports.getVisitors = (req, res) => {
     // });
     //select * from visitor
     models.Visitor.findAll().then((result) => {
-        res.render('visitor', { data: result });
+        console.log('findAll', result);
+        // res.render('visitor', { data: result });
+        res.send({ hahaha: result, msg: 'ㅎㅇ', kdt: 9});
     });
 };
 
@@ -26,7 +28,6 @@ exports.getVisitor = (req, res) => {
     }).then((result) => {
         res.render('visitor', {data: [result]});
     });
-
 };
 
 exports.postVisitor = (req, res) => {
