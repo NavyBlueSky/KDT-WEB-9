@@ -6,7 +6,11 @@ const PORT = 8000;
 app.set('view engine', 'ejs');
 //cookie-parser
 //일반 쿠키
-app.use(cookieParser());
+// app.use(cookieParser());
+
+//암호화 쿠키
+app.use(cookieParser("asdfzxcv"));
+
 //cookie 옵션객체
 const cookieConfig = {
     //httpOnly: 웹 서버를 통해서만 쿠키에 접근가능
@@ -21,6 +25,7 @@ const cookieConfig = {
     //signed: 쿠키의 암호화 결정 (req.signedCookies객체에 들어있음)
     httpOnly: true,
     maxAge: 60 * 1000, //1분 = 6만 밀리세컨드
+    signed: true,
 };
 
 app.get('/', (req, res) => {
@@ -33,7 +38,8 @@ app.get('/setCookie', (req, res) => {
     res.send('set cookie');
 });
 app.get('/getCookie', (req, res) => {
-    res.send(req.cookies);
+    // res.send(req.cookies);
+    res.send(req.signedCookies);
 });
 app.get('/clearCookie', (req, res) => {
     res.clearCookie('myCookie', 'myValue', cookieConfig);
