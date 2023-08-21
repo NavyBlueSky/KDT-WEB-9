@@ -64,11 +64,11 @@
                 url: '/dynamic',
                 data: formData,
                 headers: {
-                    'Contend-Type': 'multipart/form-data',
-                },
-            });
+                    'Content-Type': 'multipart/form-data',
+                }
+            })
             console.log('res', res);
-            resultBox.innerHTML = `<img src=${res.data}>`;
+            resultBox.innerHTML = `<img src=${res.data.path}>`;
         }
     </script>
 </body>
