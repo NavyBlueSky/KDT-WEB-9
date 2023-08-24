@@ -1,27 +1,19 @@
 const model = require('../model/Model');
 
-// exports.main = (req, res) => {
-//     res.render('index');
-// };
-
-const main = (req, res) => {
-    res.render('index');
+exports.main = (req, res) => {
+    res.render('index', { users: model });
 };
 
-const users = (req, res) => {
-    res.render('users', {lists: model });
-};
-
-const user = (req, res) => {
-    console.log(req.params);
-    //{name: '50'}  :name 콜론 뒤에 붙은 변수가 key,  입력한 값이 value
-    res.render('user', {data: model[Number(req.params.name) - 1]});
-};
-
-module.exports = {
-    main: main,
-    users,
-    user,
+exports.register = (req, res) => {
+    //req.body.name, req.body.gender, req.body.major
+    const { who, gender, major } = req.body;
+    model.push({
+        id: model.length + 1,
+        who,
+        gender,
+        major,
+    });
+    res.json({ result: true });
 };
 
 //모듈 사용 방법

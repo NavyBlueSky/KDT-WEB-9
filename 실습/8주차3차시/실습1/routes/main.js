@@ -2,12 +2,9 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controller/Cmain');
 
-// router.get('/', controller.main);
-
+//회원전체 리스트
 router.get('/', controller.main);
-// 전체목록보기
-router.get('/users', controller.users);
-//상세보기
-router.get('/user/:name', controller.user);
+//회원정보 추가
+router.post('/register', controller.register);
 
 module.exports = router;

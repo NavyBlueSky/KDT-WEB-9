@@ -8,7 +8,43 @@
     </head>
     <body>
         <h1>MVC 실습</h1>
-        <a href="/users">회원 목록 보기</a>
-        <a href="/user"></a>
+        <h1>회원 전체 목록</h1>
+        <h3>회원정보 추가</h3>
+        <form name="register">
+            <input type="text" id="name" placeholder="이름" /><br />
+            <input type="text" id="gender" placeholder="성별" /><br />
+            <input type="text" id="major" placeholder="전공" /><br />
+            <button type="button" onclick="registerFunc()">등록</button>
+        </form>
+        <ul>
+            <% for(let i = 0; i < users.length; i++) { %>
+                <li>
+                    <p>이름: <%= users[i].who %></p>
+                    <p>성별: <%= users[i].gender %></p>
+                    <p>전공: <%= users[i].major %></p>
+                </li>
+                <p>----------------</p>
+            <% } %>
+        </ul>
+    
+        <script>
+            function registerFunc() {
+                const form = document.forms['register'];
+                const data = {
+                    who: form.name.value,
+                    gender: form.gender.value,
+                    major: form.major.value,
+                };
+                axios({
+                    method: 'POST',
+                    url: '/register',
+                    data,
+                }).then((res) => {
+                    if (res.data.result) {
+                        document.location.reload();
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
