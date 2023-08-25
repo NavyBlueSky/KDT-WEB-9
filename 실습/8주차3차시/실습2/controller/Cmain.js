@@ -34,10 +34,17 @@ const post_signin = (req, res) => {
     });
 };
 
+const edit_profile = (req, res) => {
+    model.edit_profile(req.body, () => {
+        res.send({ result: true });
+    });
+};
+
 module.exports = {
     main,
     signup,
     signin,
     post_signup,
     post_signin,
+    edit_profile,
 };
