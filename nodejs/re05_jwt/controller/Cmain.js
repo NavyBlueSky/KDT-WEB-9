@@ -35,12 +35,13 @@ const signup = (req, res) => {
 };
 //로그인페이지
 const signin = (req, res) => {
-    console.log(req.session.userInfo, req.sessionID);
-    if (req.session.userInfo) {
-        res.redirect(`/profile/${req.session.userInfo.id}`);
-    } else {
-        res.render('signin');
-    }
+    // console.log(req.session.userInfo, req.sessionID);
+    // if (req.session.userInfo) {
+    //     res.redirect(`/profile/${req.session.userInfo.id}`);
+    // } else {
+    //     res.render('signin');
+    // }
+    res.render('signin');
 };
 //회원정보 조회 페이지
 const profile = (req, res) => {
@@ -105,11 +106,10 @@ const post_signin = async (req, res) => {
         const result = await compareFunc(pw, user.pw);
         console.log('result', result);
         if (result) {
-            //세션 생성
-            // req.session.userInfo = { name: user.name, id: user.id };
-            ///JWT 생성
-            const token = jwt.sign( { name: user.name, id: user.id }, SECRET );
-
+            // //세션 생성
+            // req.session.userInfo = {name: user.name, id: user.id };
+            //JWT 생성
+            const token = jwt.sign({ name: user.name, id: user.id }, SECRET);
             res.cookie('isLogin', true);
             res.cookie('aToken', token);
             res.json({ result: true, data: user, token });
@@ -127,29 +127,31 @@ const edit_profile = async (req, res) => {
     // model.db_profile_edit(req.body, () => {
     //     res.json({ result: true });
     // });
-    // headers의 요청은 req.heeaders안에 있음/
-    console.log('req.headers');
+    const { name, pw, id } = req.body;
+    //headers의 요청은 req.headers안에 있음.
+    console.log(req.headers);
+    //split() ()안의 문자를 기준으로 문자열을 잘라내기한 후 배열을 반환
     const [bearer, token] = req.headers.authorization.split(' ');
-    if(bearer === 'Bearer'){
+    if (bearer === 'Bearer') {
         try {
             const result = jwt.verify(token, SECRET);
             console.log(result);
-            User.update({ name, pw }, { where: { id } }).then(() => {
-                res.json({ result: true });
-            });
-            if(returnValue) {}
-            
+            const returnValue = await User.findOne({ where: { id: result.id } });
+            if (returnValue) {
+                const hash = await bcryptPassword(pw);
+                //update ( 수정될 정보를 객체형태로 입력, 수정될 곳 객체 입력 )
+                User.update({ name, pw: hash }, { where: { id } }).then(() => {
+                    res.json({ result: true });
+                });
+            }
         } catch (error) {
-            //인증실패시
+            //인증에 실패했을때
             console.log(error);
-            res.json({result: false, message: '인증 실패'});
+            res.json({ result: false, message: '인증에 실패하였습니다' });
         }
-        const result  = jwt.verify(token, SECRET);
     } else {
-        res.json({result : false, message: '잘못된 인증'});
+        res.json({ result: false, message: '잘못된 인증방식입니다' });
     }
-    //update ( 수정될 정보를 객체형태로 입력, 수정될 곳 객체 입력 )
-    const { name, pw, id } = req.body;
 };
 
 /////////////////////////////////////
@@ -163,8 +165,8 @@ const destroy = (req, res) => {
         //쿠키삭제
         //res.clearCookie(쿠키이름)
         res.clearCookie('isLogin');
-        //세션삭제
-        req.session.destroy();
+        // //세션삭제
+        // req.session.destroy();
         res.json({ result: true });
     });
 };

@@ -29,8 +29,8 @@
                         pw: form.pw.value,
                     },
                     headers: {
-                        Authorization:  `Bearer ${localStorage.getItem('token')} `,
-                    }
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
                 }).then((res) => {
                     if (res.data.result) {
                         document.location.reload();
