@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>Hello World!</div>
+
+    <form id="chat">
+        <!-- <input type="text" id="user" placeholder="사용자명" /> -->
+        <!-- <input type="text" id="message" placeholder="채팅내용" /><br /> -->
+        <button id="hello">hello</button>
+        <button id="study">study</button>
+        <button id="bye">bye</button>
+    </form>
+    <ul></ul>
+    <p></p>
+    <script>
+        //const chatForm = document.querySelector('#chat');
+        const ul = document.querySelector('ul');
+        const helloB = document.querySelector('#hello');
+        const studyB = document.querySelector('#study');
+        const byeB = document.querySelector('#bye');
+        const socket1 = io();
+        //이벤트 생성
+        socket1.emit('open_message', {name: 'client', message: 'Hello Server'}, (res) => {
+            console.log(res);
+        });  //true, '안녕하세요', 100); // json parse 쓸 필요없이 io가 알아서 해줌 (ex.axios), 변수형식도 그냥 써도 알아서됨
+        socket1.on('backend_message', (arg) => {
+            const li = document.createElement('li');
+            li.textContent = `${arg.name}: ${arg.message}`;
+            ul.appendChild(li);
+        })
+        // 폼이벤트
+        helloB.addEventListener('click', (e) => {
+            socket1.emit('form_message', {name: 'client', message: 'Hello'});
+        });
+        studyB.addEventListener('click', (e) => {
+            socket1.emit('form_message', {name: 'client', message: 'Study'});
+        });
+        byeB.addEventListener('click', (e) => {
+            socket1.emit('form_message', {name: 'client', message: 'Bye'});
+        });
+    </script>
+</body>
+</html>
