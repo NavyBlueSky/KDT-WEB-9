@@ -1,6 +1,13 @@
+const http = require('http');
 const ws =  require('ws');
 const express = require('express');
 const app = express();
+//http서버
+const server = http.createServer(app); // express에 직접적인 접근이 아닌 간접적인 접근
+//추후 복잡해지는 상황에서 오류 가능성에 대한 예방 작업이다. + 확장성
+//웹서버// 웹소켓 서버 접속
+const wss = new ws.Server({server}); // <--- {port: PORT, server: server}
+
 const PORT = 8000;
 
 app.set('view engine', 'ejs');
@@ -8,13 +15,6 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
     res.render('client');
 });
-
-const server = app.listen(PORT, () => {
-    console.log(`http://localhost:${PORT}`);
-});
-
-// 웹소켓 서버 접속
-const wss = new ws.Server({server}); // <--- {port: PORT, server: server}
 
 //브라우저(클라이언트)들을 담을 배열 변수
 const sockets = [];
@@ -43,4 +43,9 @@ wss.on('connection', (socket) => {
     socket.on('close', () => {
         console.log('클라이언트와의 연결이 종료되었습니다.');
     });
+});
+
+
+server.listen(PORT, () => {
+    console.log(`http://localhost:${PORT}`);
 });
