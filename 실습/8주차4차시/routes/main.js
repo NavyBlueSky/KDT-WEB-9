@@ -21,4 +21,7 @@ router.patch('/profile/edit', controller.edit_profile);
 //예시) 회원 구매목록
 router.get('/profile/buy', controller.buy);
 
+//회원탈퇴
+router.delete('/destroy', controller.destroy);
+
 module.exports = router;
