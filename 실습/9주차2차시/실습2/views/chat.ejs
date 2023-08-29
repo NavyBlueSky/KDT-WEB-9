@@ -4,40 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
     <style>
-        .container p{
-            text-align: right;
-        }
-        .container li{
-            text-align: left;
-        }
-        div {
+        .box {
             background-color: rgb(198, 228, 255);
             width: 500px;
             height: 700px;
+            overflow: auto;
+            flex-direction: column;
+            display: flex;
         }
-        li {
+        ul {
             list-style-type: none;
         }
-        p {
-            /*
-            display: inline-block;
-            display: inline-block;
+        li {
+            margin: 0;
+        }
+        .left {
+            text-align: left;
+        }
+        .right {
             text-align: right;
-            position: absolute;
-            right: 10px;
-            */
-            padding: 5px;
-            border-radius: 10;
+        }
+        .chatmsg {
             display: inline-block;
-            margin-right: 15px;
-            background-color: rgb(255, 226, 223);
+            border-radius: 10px;
         }
     </style>
-    <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    <div id="box">
         <ul></ul>
     </div>
     <form id="chat">
@@ -59,16 +55,35 @@
 
         //브라우저 접속시 이벤트
         socket.on('create', (res) => {
-            const li = document.createElement('li');
+            const li = document.createElement('div');
             li.textContent = res;
             ul.appendChild(li);
         });
-        //서버에서 보내주는 값
-        socket.on('chat', (res) => {
-            const p = document.createElement('p');
-            p.textContent = res;
-            ul.appendChild(p);
+
+        // if(){
+
+        // }
+        //타사용자 채팅
+        socket.on('oppo', (res) => {
+            const oppomsg = document.createElement('div');
+            li.textContent = res;
+            li.style.backgroundColor = 'yellow'
+            li.style.display = 'inline-block'
+            li.style.textAlign = 'right'
+            li.style.marginLeft = '15px'
+            ul.appendChild(li);
         });
+        //사용자 채팅
+        socket.on('chat', (res) => {
+            const li = document.createElement('li');
+            li.textContent = res;
+            li.style.backgroundColor = 'white'
+            li.style.display = 'inline-block'
+            li.style.textAlign = 'left'
+            li.style.marginRight = '15px'
+            li.style.flexDirection = 'col'
+            ul.appendChild(li);
+        })
 
         //폼이벤트
         chatForm.addEventListener('submit', (e) => {

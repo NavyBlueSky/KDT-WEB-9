@@ -28,13 +28,15 @@ io.on('connection', (socket) => {
         console.log('조인 후', socket.rooms);
         //broadcast는 나를 제외한 전체 사용자(브라우저)에게 메세지를 전달
         socket.broadcast.to(res).emit('create', '새로운 브라우저가 입장했습니다.');
-        console.log(socket);
+        //console.log(socket);
         const roomInfo = io.sockets.adapter.rooms.get(res)?.size;
-        console.log(roomInfo);
+        //console.log(roomInfo);
     });
     socket.on('message', (res) => {
         //io.to(특정방아이디).emit(이벤트) 특정방의 전체 사용자에게 메세지 전달
-        io.to(socket.room).emit('chat', res);
+        //io.to(socket.room).emit('chat', res);
+        //socket.emit('chat', res)
+        socket.broadcast.to(socket.room).emit('oppo', res);
     });
     socket.on('leave', () => {
         socket.leave(socket.room);
