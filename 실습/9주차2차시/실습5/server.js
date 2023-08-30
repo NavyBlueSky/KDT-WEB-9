@@ -25,9 +25,12 @@ function getUsersInRoom(room) {
     //console.log(clients);
     if (clients) {
         clients.forEach((socketId) => {
-            //socket.id가 할당한 변수들의 객체값
+            //io.sockets.sockets: socket.id가 할당한 변수들의 객체값
             const userSocket = io.sockets.sockets.get(socketId);
-            users.push(userSocket.user);
+            //개별 사용자에게 메세지를 보내기 위해서 객체형태로 변경
+            //key: 소켓아이디, name:이름
+            const info = { name: userSocket.user, key: socketId };
+            users.push(info);
         });
     }
     return users;
@@ -49,8 +52,9 @@ io.on('connection', (socket) => {
         //socket은 객체이며 원하는 값을 할당할 수 있음
         socket.room = roomName;
         socket.user = userName;
-        socket.broadcast.to(roomName).emit('newuser', `${[...socket.rooms][0]}님이 입장하였습니다`);
-        
+
+        socket.to(roomName).emit('notice', `${socket.id}님이 입장하셨습니다`);
+
         //채팅방 목록 갱신
         if (!roomList.includes(roomName)) {
             roomList.push(roomName);
@@ -63,14 +67,15 @@ io.on('connection', (socket) => {
     });
 
     socket.on('sendMessage', (message) => {
-        if(message.user == 'all') {
-            io.to(socket.room).emit('newMessage', message.message, message.nick);
-        } 
-        else if (message.user >= 0) {
-            io.to(socket.room).emit('whisper', message.message, message.nick, message.user)
+        console.log(message);
+        if (message.user === 'all') {
+            io.to(socket.room).emit('newMessage', message.message, message.nick, false);
+        } else {
+            io.to(message.user).emit('newMessage', message.message, message.nick, true);
+            //자기자신에게 메세지 띄우기
+            socket.emit('newMessage', message.message, message.nick, true);
         }
-});
-
+    });
 
     socket.on('disconnect', () => {
         if (socket.room) {

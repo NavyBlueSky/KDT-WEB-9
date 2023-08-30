@@ -10,7 +10,7 @@
                 width: 100%;
                 height: 70vh;
                 position: relative;
-                background: rgb(212, 235, 255);
+                background: #8ae4bc;
             }
             #chat {
                 position: absolute;
@@ -34,18 +34,6 @@
                 border-radius: 10px;
                 margin-right: 10px;
             }
-            .ownchat {
-                display: flex;
-                justify-content: end;
-                padding: 2px 0px;
-            }
-            .ownchat p {
-                margin: 0;
-                padding: 10px;
-                background: white;
-                border-radius: 10px;
-                margin-right: 10px;
-            }
             .other-chat {
                 display: flex;
                 justify-content: start;
@@ -58,27 +46,17 @@
                 border-radius: 10px;
                 margin-left: 10px;
             }
-            #welcome {
-                color: white;
-                font-size: 12px;
-                margin: 0 auto;  /* 중앙배치 */
-                background-color: rgba(0, 0, 0, 0.2);
-                border-radius: 10px;
-                padding: 5px 10px;
-                margin-bottom: 10px;
-                text-align: center;
-            }
-            .whisper {
+            #notice {
                 display: flex;
-                justify-content: start;
-                padding: 2px 0px;
+                flex-direction: column;
+                text-align: center;
+                color: gray;
             }
-            .whisper p {
+            #notice p {
                 margin: 0;
-                padding: 10px;
-                background: rgb(255, 210, 217);
-                border-radius: 10px;
-                margin-left: 10px;
+            }
+            .secret-chat p {
+                background: pink;
             }
         </style>
     </head>
@@ -93,14 +71,13 @@
         </div>
         <div id="body" hidden>
             <div id="msg">
-                <div class="newuse">
-                </div>
-                <div class="my-chat">
-                    <!-- <p>채팅테스트(나)</p> -->
+                <div id="notice"></div>
+                <!-- <div class="my-chat">
+                    <p>채팅테스트(나)</p>
                 </div>
                 <div class="other-chat">
-                    <!-- <p>채팅테스트(상대방)</p> -->
-                </div>
+                    <p>채팅테스트(상대방)</p>
+                </div> -->
             </div>
             <form id="chat">
                 <select id="userList"></select>
@@ -114,6 +91,8 @@
             const roomForm = document.querySelector('#room');
             const chatForm = document.querySelector('#chat');
             const msg = document.querySelector('#msg');
+            const notice = document.querySelector('#notice');
+
             let myName;
 
             //룸리스트
@@ -134,13 +113,13 @@
                 const lists = document.querySelector('#userList');
                 lists.textContent = '';
                 let options = `<option value="all">전체</option>`;
-                for (let key in userLists) {
-                    options += `<option value="${key}">${userLists[key]}</option>`;
+                for (let i of userLists) {
+                    options += `<option value="${i.key}">${i.name}</option>`;
                 }
                 lists.innerHTML = options;
             });
             //메세지 띄우기
-            socket.on('newMessage', (message, nick) => {
+            socket.on('newMessage', (message, nick, bool) => {
                 console.log(message, nick);
                 const div = document.createElement('div');
                 const p = document.createElement('p');
@@ -150,37 +129,23 @@
                 } else {
                     div.classList.add('other-chat');
                 }
+                //개인메세지일때 bool이 true
+                if (bool) {
+                    div.classList.add('secret-chat');
+                }
+
                 //채팅 텍스트
-                p.textContent = `${nick}: ${message}`;
+                p.textContent = bool ? `(귓속말) ${nick} : ${message}` : `${nick} : ${message}`;
                 div.appendChild(p);
                 msg.appendChild(div);
             });
-
-            //귓속말
-            socket.on('whisper', (message, nick, user) => {
+            //입장 메세지 이벤트
+            socket.on('notice', (message) => {
                 const div = document.createElement('div');
                 const p = document.createElement('p');
-                if (myName === nick) {
-                    //내가입력한 텍스트
-                    div.classList.add('ownchat');
-                } else {
-                    div.classList.add('whisper');
-                    div.classList.add()
-                }
-                //채팅 텍스트
-                p.textContent = `${nick}: ${message}`;
+                p.textContent = message;
                 div.appendChild(p);
-                msg.appendChild(div);
-            })
-
-            socket.on('newuser', (res) => {
-                const div = document.createElement('div');
-                const p = document.createElement('p');
-                div.classList.add('newuse')
-                div.id = 'welcome';
-                p.textContent = res
-                div.appendChild(p);
-                msg.appendChild(div);
+                notice.appendChild(div);
             });
 
             ///폼 이벤트
