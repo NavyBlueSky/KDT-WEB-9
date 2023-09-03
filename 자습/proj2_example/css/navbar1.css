@@ -1,0 +1,25 @@
+/* 네비게이션 바 스타일 */
+nav {
+    background-color: #333; /* 배경색 설정 */
+    color: #fff; /* 텍스트 색상 설정 */
+    padding: 10px 0; /* 위아래 여백 설정 */
+}
+
+/* 네비게이션 바 링크 스타일 */
+nav ul {
+    list-style: none; /* 목록 마커 제거 */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+nav ul li {
+    display: inline; /* 가로로 나열 */
+    margin: 0 20px; /* 각 링크 사이의 여백 설정 */
+}
+
+nav a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: #fff; /* 링크 텍스트 색상 설정 */
+    font-weight: bold; /* 글꼴 두껍게 설정 */
+}
