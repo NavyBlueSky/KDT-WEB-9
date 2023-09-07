@@ -14,7 +14,7 @@ exports.connection = (io, socket) => {
         socket.room = roomName;
         socket.user = userName;
 
-        socket.to(roomName).emit('notice', `${userName}님이 입장하셨습니다`);
+        socket.to(roomName).emit('notice', `${socket.id}님이 입장하셨습니다`);
 
         //채팅방 목록 갱신
         if (!roomList.includes(roomName)) {
@@ -38,12 +38,10 @@ exports.connection = (io, socket) => {
         }
     });
 
-    socket.on('disconnect', (roomName, userName, cb) => {
+    socket.on('disconnect', () => {
         if (socket.room) {
             socket.leave(socket.room);
         }
-        socket.to(roomName).emit('noticeE', `${userName}님이 퇴장하셨습니다`);
-        cb();
     });
 
     function getUsersInRoom(room) {
@@ -57,10 +55,7 @@ exports.connection = (io, socket) => {
                 const userSocket = io.sockets.sockets.get(socketId);
                 //개별 사용자에게 메세지를 보내기 위해서 객체형태로 변경
                 //key: 소켓아이디, name:이름
-                const info = {
-                    name: userSocket.user,
-                    key: socketId
-                };
+                const info = { name: userSocket.user, key: socketId };
                 users.push(info);
             });
         }

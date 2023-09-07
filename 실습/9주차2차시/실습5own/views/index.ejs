@@ -7,12 +7,10 @@
         <title>Document</title>
         <style>
             #body {
-                width: 400px;
-                height: 700px;
-                position: absolute;
-                background: #a0a0a0;
-                right: 20px;
-                bottom: 20px;
+                width: 100%;
+                height: 70vh;
+                position: relative;
+                background: rgb(212, 235, 255);
             }
             #chat {
                 position: absolute;
@@ -24,10 +22,6 @@
             #chat input {
                 width: 80%;
             }
-            #exit {
-                position: relative;
-                justify-content: center;
-            }
             .my-chat {
                 display: flex;
                 justify-content: end;
@@ -36,7 +30,19 @@
             .my-chat p {
                 margin: 0;
                 padding: 10px;
-                background: rgb(255, 255, 194);
+                background: yellow;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+            .ownchat {
+                display: flex;
+                justify-content: end;
+                padding: 2px 0px;
+            }
+            .ownchat p {
+                margin: 0;
+                padding: 10px;
+                background: white;
                 border-radius: 10px;
                 margin-right: 10px;
             }
@@ -52,54 +58,50 @@
                 border-radius: 10px;
                 margin-left: 10px;
             }
-            .notice,
-            .noticeE {
-                display: flex;
-                flex-direction: column;
+            #welcome {
+                color: white;
+                font-size: 12px;
+                margin: 0 auto;  /* 중앙배치 */
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                padding: 5px 10px;
+                margin-bottom: 10px;
                 text-align: center;
-                color: rgb(99, 24, 24);
             }
-            .notice,
-            .noticeE p {
+            .whisper {
+                display: flex;
+                justify-content: start;
+                padding: 2px 0px;
+            }
+            .whisper p {
                 margin: 0;
-            }
-            .secret-chat p {
-                background: rgb(255, 201, 210);
+                padding: 10px;
+                background: rgb(255, 210, 217);
+                border-radius: 10px;
+                margin-left: 10px;
             }
         </style>
     </head>
     <body>
         <div id="main">
-            <form id="roomli">
-                <ul>
-                    <p>지역별 오픈 채팅</p>
-                    <select id="roomList">
-                        <option value="null">지역</option>
-                        <option value="sk">서울/경인</option>
-                        <option value="kw">강원</option>
-                        <option value="cc">충청</option>
-                        <option value="jl">전라</option>
-                        <option value="ks">경상</option>
-                    </select>
-                    <select id="roomListNum">
-                        <option value="null">방번호</option>
-                        <option value="1">1번</option>
-                        <option value="2">2번</option>
-                        <option value="3">3번</option>
-                        <option value="4">4번</option>
-                        <option value="5">5번</option>
-                    </select>
-                    <input type="text" id="userName" placeholder="사용자 이름 입력" />
-
-                    <button>입장</button>
-                </ul>
+            <form id="room">
+                <input type="text" id="roomName" placeholder="채팅방 만들기" />
+                <input type="text" id="userName" placeholder="사용자 이름 입력" />
+                <button>만들기</button>
             </form>
+            <ul id="lists"></ul>
         </div>
         <div id="body" hidden>
-            <form id="exit">
-                <button>나가기</button>
-            </form>
-            <div id="msg"></div>
+            <div id="msg">
+                <div class="newuse">
+                </div>
+                <div class="my-chat">
+                    <!-- <p>채팅테스트(나)</p> -->
+                </div>
+                <div class="other-chat">
+                    <!-- <p>채팅테스트(상대방)</p> -->
+                </div>
+            </div>
             <form id="chat">
                 <select id="userList"></select>
                 <input type="text" id="message" placeholder="메세지 입력" />
@@ -109,12 +111,9 @@
 
         <script>
             const socket = io();
-            const roomForm2 = document.querySelector('#roomli');
+            const roomForm = document.querySelector('#room');
             const chatForm = document.querySelector('#chat');
             const msg = document.querySelector('#msg');
-            const notice = document.querySelector('#notice');
-            const chatexit = document.querySelector('#exit');
-
             let myName;
 
             //룸리스트
@@ -135,13 +134,13 @@
                 const lists = document.querySelector('#userList');
                 lists.textContent = '';
                 let options = `<option value="all">전체</option>`;
-                for (let i of userLists) {
-                    options += `<option value="${i.key}">${i.name}</option>`;
+                for (let key in userLists) {
+                    options += `<option value="${key}">${userLists[key]}</option>`;
                 }
                 lists.innerHTML = options;
             });
             //메세지 띄우기
-            socket.on('newMessage', (message, nick, bool) => {
+            socket.on('newMessage', (message, nick) => {
                 console.log(message, nick);
                 const div = document.createElement('div');
                 const p = document.createElement('p');
@@ -151,60 +150,52 @@
                 } else {
                     div.classList.add('other-chat');
                 }
-                //개인메세지일때 bool이 true
-                if (bool) {
-                    div.classList.add('secret-chat');
-                }
-
                 //채팅 텍스트
-                p.textContent = bool ? `(귓속말) ${nick} : ${message}` : `${nick} : ${message}`;
-                div.appendChild(p);
-                msg.appendChild(div);
-            });
-            //입장 메세지 이벤트
-            socket.on('notice', (message) => {
-                const div = document.createElement('div');
-                const p = document.createElement('p');
-                div.classList.add('notice');
-                p.textContent = message;
+                p.textContent = `${nick}: ${message}`;
                 div.appendChild(p);
                 msg.appendChild(div);
             });
 
-            //채팅방 나가기
-            chatexit.addEventListener('click', (e) => {
-                socket.emit('disconnect');
-            });
-
-            //퇴장 메세지 이벤트
-
-            socket.on('noticeE', (message) => {
+            //귓속말
+            socket.on('whisper', (message, nick, user) => {
                 const div = document.createElement('div');
                 const p = document.createElement('p');
-                div.classList.add('noticeE');
-                p.textContent = message;
+                if (myName === nick) {
+                    //내가입력한 텍스트
+                    div.classList.add('ownchat');
+                } else {
+                    div.classList.add('whisper');
+                    div.classList.add()
+                }
+                //채팅 텍스트
+                p.textContent = `${nick}: ${message}`;
+                div.appendChild(p);
+                msg.appendChild(div);
+            })
+
+            socket.on('newuser', (res) => {
+                const div = document.createElement('div');
+                const p = document.createElement('p');
+                div.classList.add('newuse')
+                div.id = 'welcome';
+                p.textContent = res
                 div.appendChild(p);
                 msg.appendChild(div);
             });
 
             ///폼 이벤트
-            roomForm2.addEventListener('submit', (e) => {
+            roomForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                let roomIndex = {};
-                const roomIndex1 = document.getElementById('roomList');
-                const roomIndex2 = document.getElementById('roomListNum');
-                roomIndex =
-                    roomIndex1.options[roomIndex1.selectedIndex].value +
-                    roomIndex2.options[roomIndex2.selectedIndex].value;
-                console.log(roomIndex);
-                const userName = roomForm2.querySelector('#userName');
-                if (userName.value === '' || roomIndex.includes('null')) {
-                    alert('※방 번호와 사용자 이름을 확인하세요');
+                const roomName = roomForm.querySelector('#roomName');
+                const userName = roomForm.querySelector('#userName');
+                if (roomName.value === '' || userName.value === '') {
+                    alert('방이름과 닉네임 적어주세요');
                     return;
                 }
-                socket.emit('create', roomIndex, userName.value, () => {
+                socket.emit('create', roomName.value, userName.value, () => {
                     const main = document.querySelector('#main');
                     const body = document.querySelector('#body');
+                    main.hidden = true;
                     body.hidden = false;
                     //전역변수에 입력한 닉네임을 저장
                     myName = userName.value;
