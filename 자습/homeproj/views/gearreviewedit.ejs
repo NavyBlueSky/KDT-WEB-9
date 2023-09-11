@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <title>Main Page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+
+            .main {
+                text-align: center;
+                margin-top: 100px;
+                margin-bottom: 100px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .logo {
+                max-width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: inline-block;
+                width: 100px;
+                text-align: right;
+                margin-bottom: 5px;
+            }
+
+            input[type='text'] {
+                width: calc(100% - 110px);
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            /* 파일 업로드 버튼 스타일 */
+            input[type='file'] {
+                margin-top: 10px;
+                padding: 10px;
+                border: none;
+                background-color: #333;
+                color: #fff;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            input[type='file']:hover {
+                background-color: #555;
+            }
+
+            button {
+                padding: 10px 20px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- header -->
+        <%-include('header.ejs')%>
+
+        <section class="main">
+            <!-- 로고 이미지 -->
+            <img src="로고이미지주소" alt="로고" class="logo" />
+            <h2>제품 등록하기</h2>
+            <form onsubmit="fileupload(event)" name="gearEdit">
+                <div>
+                    <label for="gearTitle">제목:</label>
+                    <input name="gearTitle" type="text" id="gearTitle" placeholder="제품명" />
+                </div>
+                <div>
+                    <label for="gearExplain">설명:</label>
+                    <input name="gearExplain" type="text" id="gearExplain" placeholder="제품설명" />
+                </div>
+                <div>
+                    <label for="writer">작성자:</label>
+                    <input type="text" name="writer" id="writer" value="<%= nickname %>" readonly />
+                </div>
+                <div>
+                    <input type="file" name="dynamic_files" multiple />
+                </div>
+                <div style="margin-top: 20px">
+                    <button>등록하기</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <%-include('footer.ejs')%>
+    </body>
+
+    <script>
+        async function fileupload(event) {
+            event.preventDefault();
+            const form = document.forms['gearEdit'];
+            const gearTitle = form.gearTitle.value;
+            const gearExplain = form.gearExplain.value;
+            const writer = form.writer.value;
+
+            const files = form.dynamic_files.files;
+            console.log(files);
+            //이미지들 url 만들기
+            const formData2 = new FormData();
+
+            for (let i = 0; i < files.length; i++) {
+                formData2.append(`gearTitle`, gearTitle);
+                formData2.append(`gearExplain`, gearExplain);
+                formData2.append(`writer`, writer);
+                formData2.append(`array_file`, files[i]);
+            }
+
+            const result1 = await axios({
+                url: '/gear/singleAxios',
+                method: 'POST',
+                data: formData2,
+                Headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            window.location.href = '/gear';
+        }
+    </script>
+</html>
