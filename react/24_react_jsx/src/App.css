@@ -1,0 +1,88 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+/* 실습3 */
+.test {
+    background-color: salmon;
+    color: aliceblue;
+    margin: 5px 300px;
+    text-align: center;
+}
+
+.input {
+    margin: 5px;
+    text-align: center;
+}
+
+/* 실습4 */
+
+.wrap {
+    display: flex;
+}
+.wrap > * {
+    width: 50px;
+}
+.red {
+    background-color: red;
+    height: 50px;
+}
+.orange {
+    background-color: orange;
+    height: 70px;
+}
+.yellow {
+    background-color: yellow;
+    height: 90px;
+}
+.green {
+    background-color: green;
+    height: 110px;
+}
+.blue {
+    background-color: blue;
+    height: 130px;
+}
+.navy {
+    background-color: navy;
+    height: 150px;
+}
+.purple {
+    background-color: purple;
+    height: 170px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
