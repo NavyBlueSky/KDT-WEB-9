@@ -1,7 +1,10 @@
 import { Component } from 'react';
 
 class MyComponent extends Component {
-    //생성될때
+    state = {
+        status: false,
+    };
+    //생성될떄
     componentDidMount() {
         console.log('Mount!');
     }
@@ -11,15 +14,20 @@ class MyComponent extends Component {
         console.log('Update!');
     }
 
-    //제거 될때
+    //제거될때
     componentWillUnmount() {
-        console.log('Unmount!');
+        console.log('Unmount');
     }
+    change = () => {
+        this.setState({ status: !this.state.status });
+    };
 
     render() {
         return (
             <>
                 <div>My Component {this.props.number}</div>
+                <button onClick={this.change}>PLUS</button>
+                <div>{this.state.status && '자식 컴포넌트'}</div>
             </>
         );
     }
@@ -38,11 +46,12 @@ class LifeCycleClass extends Component {
     changeVisibleState = () => {
         this.setState({ visible: !this.state.visible });
     };
+
     render() {
         return (
             <>
-                <button onClick={this.changeNumberState}>plus</button>
-                <button onClick={this.changeVisibleState}>on/off</button>
+                <button onClick={this.changeNumberState}>PLUS</button>
+                <button onClick={this.changeVisibleState}>ON/OFF</button>
                 {this.state.visible && <MyComponent number={this.state.number} />}
             </>
         );
