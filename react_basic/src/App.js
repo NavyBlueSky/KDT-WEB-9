@@ -8,6 +8,8 @@ import RefSampleFunc2 from './09Ref/RefSampleFunc2';
 import SignUpForm from './10Hook/SignUpForm';
 import UseCallback from './10Hook/UseCallback';
 import UseReducer from './10Hook/UseReducer';
+import SassComponent from './11Style/SassComponent';
+import Style from './11Style/Style';
 
 function App() {
     return (
@@ -18,9 +20,12 @@ function App() {
             {/*
             <RefSampleFunc1 />
     <RefSampleFunc2 />
-            <UseCallback />
-            <UseReducer />*/}
-            <SignUpForm />
+            
+            <UseReducer />            <SignUpForm />
+                        <UseCallback />            <Style />
+
+*/}
+            <SassComponent />
         </>
     );
 }
