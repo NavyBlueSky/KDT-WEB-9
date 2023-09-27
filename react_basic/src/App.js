@@ -10,22 +10,17 @@ import UseCallback from './10Hook/UseCallback';
 import UseReducer from './10Hook/UseReducer';
 import SassComponent from './11Style/SassComponent';
 import Style from './11Style/Style';
+import StyledComponent from './11Style/StyledComponent';
+import Header from './12Router/Header';
+// import Router from './12Router/Router';
+import { Outlet } from 'react-router-dom';
 
 function App() {
     return (
         <>
-            {' '}
-            {/*<LifeCycleFunc />
-        <Jsx />*/}
-            {/*
-            <RefSampleFunc1 />
-    <RefSampleFunc2 />
-            
-            <UseReducer />            <SignUpForm />
-                        <UseCallback />            <Style />
-
-*/}
-            <SassComponent />
+            {/* ver */}
+            <Header />
+            <Outlet />
         </>
     );
 }
