@@ -11,18 +11,28 @@ import UseStatePrac2 from './07UseState/UseStatePrac2';
 import UseStatePrac3 from './07UseState/UseStatePrac3';
 import UseStatePrac4 from './07UseState/UseStatePrac4';
 import UseStatePrac5 from './07UseState/UseStatePrac5';
-import LifePrac1 from './08Lifecycle/LifePrac1';
-import LifePrac2 from './08Lifecycle/LifePrac2';
+// import LifePrac1 from './08Lifecycle/LifePrac1';
+// import LifePrac2 from './08Lifecycle/LifePrac2';
+import RefPrac1 from './09Ref/RefPrac1';
+import RefPrac2 from './09Ref/RefPrac2';
+import SassPrac1 from './10Style/SassPrac1';
+import SassPrac2 from './10Style/SassPrac2';
+import StyleCompoPrac1 from './10Style/StyleCompoPrac1';
+import StyleCompoPrac2 from './10Style/StyleCompoPrac2';
 
 function App() {
+    {
+        /*
     const [status, setStatus] = useState(true);
     const removeComp = () => {
         setStatus(!status);
     };
+     */
+    }
 
     return (
         <>
-            <button onClick={removeComp}>연결해제</button>
+            {/*<button onClick={removeComp}>연결해제</button>
             {status && <LifePrac2 />}
             {/* Prop 실습 */}
             {/* <PropsPrac1 food="치킨" />
@@ -45,7 +55,13 @@ function App() {
             <UseStatePrac2 />
             <UseStatePrac3 />
             <UseStatePrac4 />
-            <UseStatePrac5 /> */}
+            <UseStatePrac5 /> 
+            <SassPrac1 />
+            <SassPrac2 />
+            <StyledComponents/>
+            */} 
+            <StyleCompoPrac1 />
+            <StyleCompoPrac2 />
         </>
     );
 }
