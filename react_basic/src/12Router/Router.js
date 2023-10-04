@@ -10,8 +10,8 @@ import NotFound from './404';
 import App from '../App';
 import Error from './Error';
 import Comment from './Comments';
-import Student from './Students';
-import StudentDetail from './StudentDetail';
+// import Student from './Students';
+// import StudentDetail from './StudentDetail';
 
 /*
 //ver1
@@ -78,26 +78,26 @@ import StudentDetail from './StudentDetail';
 //     },
 // ]);
 
-const Router = createBrowserRouter([
-    {
-        path: '/',
-        element: <App />,
-        errorElement: <NotFound />,
-    },
-    {
-        path: '/student',
-        element: <App />,
-        children: [
-            {
-                path: 'kdt',
-                element: <Student />,
-            },
-            {
-                path: 'new?name=kdt3rd',
-                element: <StudentDetail />,
-            },
-        ],
-    },
-]);
+// const Router = createBrowserRouter([
+//     {
+//         path: '/',
+//         element: <App />,
+//         errorElement: <NotFound />,
+//     },
+//     {
+//         path: '/student',
+//         element: <App />,
+//         children: [
+//             {
+//                 path: 'kdt',
+//                 element: <Student />,
+//             },
+//             {
+//                 path: 'new?name=kdt3rd',
+//                 element: <StudentDetail />,
+//             },
+//         ],
+//     },
+// ]);
 
-export default Router;
+// export default Router;

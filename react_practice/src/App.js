@@ -19,6 +19,7 @@ import SassPrac1 from './10Style/SassPrac1';
 import SassPrac2 from './10Style/SassPrac2';
 import StyleCompoPrac1 from './10Style/StyleCompoPrac1';
 import StyleCompoPrac2 from './10Style/StyleCompoPrac2';
+import FormPrac from './11Form/FormPrac';
 
 function App() {
     {
@@ -59,9 +60,10 @@ function App() {
             <SassPrac1 />
             <SassPrac2 />
             <StyledComponents/>
-            */} 
-            <StyleCompoPrac1 />
+                        <StyleCompoPrac1 />
             <StyleCompoPrac2 />
+            */}
+            <FormPrac />
         </>
     );
 }
