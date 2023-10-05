@@ -15,20 +15,21 @@ import Header from './12Router/Header';
 import Router from './12Router/Router';
 import { Outlet } from 'react-router-dom';
 import Form from './13Form/Form';
-import MyContext from './14Context/store/lang-context';
+import MyContext, { LanguageProvider } from './14Context/store/lang-context';
 import { useState } from 'react';
 import LanguageSelector from './14Context/store/LangSelector';
 
 function App() {
-    const [language, setLanguage] = useState('ko');
     return (
         <>
+            <LanguageProvider>
+                <LanguageSelector />
+            </LanguageProvider>
             {/* ver 
             <Header />
             <Outlet />*/}
+            {/*  
             <MyContext.Provider value={{ language: language, setLanguage: setLanguage }}>
-                <LanguageSelector />
-                {/*         
                 <MyContext.Consumer>
                     {(value) => {
                         return (
@@ -42,8 +43,9 @@ function App() {
                             </div>
                         );
                     }}
-                </MyContext.Consumer> */}
+                </MyContext.Consumer> 
             </MyContext.Provider>
+            */}
         </>
     );
 }
