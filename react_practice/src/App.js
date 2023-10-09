@@ -20,6 +20,10 @@ import SassPrac2 from './10Style/SassPrac2';
 import StyleCompoPrac1 from './10Style/StyleCompoPrac1';
 import StyleCompoPrac2 from './10Style/StyleCompoPrac2';
 import FormPrac from './11Form/FormPrac';
+import { ThemeProvider } from './12Context/store/them-context';
+import ThemeSelector from './12Context/store/ThemeSelector';
+import { LanguageProvider } from './12Context/store/lang-context';
+import LanguageSelector from './12Context/store/LangSelector';
 
 function App() {
     {
@@ -33,6 +37,12 @@ function App() {
 
     return (
         <>
+            <LanguageProvider>
+                <LanguageSelector />
+            </LanguageProvider>
+            <ThemeProvider>
+                <ThemeSelector />
+            </ThemeProvider>
             {/*<button onClick={removeComp}>연결해제</button>
             {status && <LifePrac2 />}
             {/* Prop 실습 */}
@@ -63,7 +73,6 @@ function App() {
                         <StyleCompoPrac1 />
             <StyleCompoPrac2 />
             */}
-            <FormPrac />
         </>
     );
 }
