@@ -20,7 +20,7 @@ public class ArrLiEx {
 		list2.add("Apple");
 		list2.add("Samsung");
 		//list.addAll(list2);
-		System.out.println(list);
+		System.out.println(list2);
 		
 		//size
 		System.out.println(list.size());
