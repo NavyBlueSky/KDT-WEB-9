@@ -1,5 +1,5 @@
 package first_java;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrEx {
@@ -7,7 +7,6 @@ public class ArrEx {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-//		// ¹è¿­ Ãâ·Â ±âÃÊ
 //		int[] intArray = {1,2,3,4,5};
 //		
 //		for( int i = 0; i < intArray.length; i++) {
@@ -15,16 +14,26 @@ public class ArrEx {
 //		}
 		
 		Scanner scan = new Scanner(System.in);
-		int[] intArray = new int[5]; // Å©±â°¡ 5ÀÎ int ¹è¿­
+		int[] intArray = new int[5]; // 
 		
-		System.out.println("¼ıÀÚ 5°³¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+		System.out.println("ìˆ«ì 5ê°œë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 		for(int i = 0; i < intArray.length; i++) {
 			intArray[i] = scan.nextInt();
 		}
 		
-		//Array.toString ¹è¿­ÀÇ ¿ä¼Ò¸¦ ¹®ÀÚ¿­·Î ¹İÈ¯
-		System.out.print(Arrays.toString(intArray));
-		System.out.print(intArray);
+		//Array.toString ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ë°©ë²•2
+//		System.out.print(Arrays.toString(intArray));
+//		System.out.print(intArray);
+		
+		//ë°©ë²•3. for-eachë¬¸ ì‚¬ìš©
+		int sum = 0;
+		for (int arr: intArray) {
+			System.out.print(arr + " ");
+			sum += arr;
+		}
+		System.out.println(sum);
+		
+		
 		scan.close();
 	}
 
