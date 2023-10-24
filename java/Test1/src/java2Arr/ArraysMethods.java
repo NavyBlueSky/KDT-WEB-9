@@ -1,5 +1,4 @@
-package first_java;
-
+package java2Arr;
 import java.util.Arrays;
 
 public class ArraysMethods {

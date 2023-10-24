@@ -1,6 +1,5 @@
-package first_java;
-
-public class Arr2Ex {
+package java2Arr;
+public class ArrEx2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

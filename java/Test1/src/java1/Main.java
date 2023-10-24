@@ -1,17 +1,16 @@
-package first_java;
-
+package java1;
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("ÁıÁıÁı");
+		System.out.println("ì§‘ì§‘ì§‘");
 		System.out.printf("%d * %d = %d", 10, 2, 10*2).println();
 		System.out.printf("%.2f", 1.12345).println();
-		//Çü½ÄÁöÁ¤ÀÚ
-		//%d : Á¤¼ö
-		//%f : ½Ç¼ö( //%.3f: ¼Ò¼öÁ¡ ¼ıÀÚÀÚ¸®±îÁö)
-		//%s : ¹®ÀÚ¿­
-		//%c : ¹®ÀÚ
+		//í˜•ì‹ì§€ì •ì
+		//%d : ì •ìˆ˜
+		//%f : ì‹¤ìˆ˜( //%.3f: ì†Œìˆ˜ì  ìˆ«ììë¦¬ê¹Œì§€)
+		//%s : ë¬¸ìì—´
+		//%c : ë¬¸ì
 		//%b : boolean
 
 	}

@@ -1,4 +1,4 @@
-package first_java;
+package java1;
 
 public class Prac205 {
 	
@@ -25,11 +25,11 @@ public class Prac205 {
 	    int num5 = 3;
 	    boolean a = true;
 		
-	    System.out.printf("¹İÁö¸§ÀÌ %d ÀÎ ¿øÀÇ ³ĞÀÌ-", num1);
+	    System.out.printf("ë°˜ì§€ë¦„ì´ %d ì¸ ì›ì˜ ë„“ì´-", num1);
 		System.out.println(calc.circle(num1));
-	    System.out.printf("°¡·Î %d, ¼¼·Î %dÀÎ Á÷»ç°¢ÇüÀÇ ³ĞÀÌ-", num2, num3);
+	    System.out.printf("ê°€ë¡œ %d, ì„¸ë¡œ %dì¸ ì§ì‚¬ê°í˜•ì˜ ë„“ì´-", num2, num3);
 		System.out.println(calc.square(num2, num3));
-	    System.out.printf("¹Øº¯ %d, ¼¼·Î %dÀÎ »ï°¢ÇüÀÇ ³ĞÀÌ-", num4, num5);
+	    System.out.printf("ë°‘ë³€ %d, ì„¸ë¡œ %dì¸ ì‚¼ê°í˜•ì˜ ë„“ì´-", num4, num5);
 		System.out.println(calc.tri(num4, num5, a));
 
 

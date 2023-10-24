@@ -1,4 +1,4 @@
-package first_java;
+package java2Arr;
 //import java.util.Arrays;
 import java.util.Scanner;
 

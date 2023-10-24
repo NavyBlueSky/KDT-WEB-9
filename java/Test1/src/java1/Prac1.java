@@ -1,22 +1,21 @@
-package first_java;
-
+package java1;
 import java.util.Scanner;
 
 public class Prac1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+		System.out.println("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
 		
 		Scanner scanner = new Scanner(System.in);
 		
 		String name = scanner.next(); 
 		
-		System.out.println("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		
 		int age = scanner.nextInt(); 
 
-		System.out.printf("¾È³çÇÏ¼¼¿ä %s(%d)", name, age);
+		System.out.printf("ì•ˆë…•í•˜ì„¸ìš” %s(%d)", name, age);
 		
 		scanner.close();
 

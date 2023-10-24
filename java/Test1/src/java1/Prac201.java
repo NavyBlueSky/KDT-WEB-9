@@ -1,23 +1,23 @@
-package first_java;
+package java1;
 import java.util.Scanner;
 
 public class Prac201 {
 
    public static void main(String[] args) {
       Scanner scanner = new Scanner(System.in);
-      System.out.print("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+      System.out.print("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
       int age = scanner.nextInt();
 
       if (1 <= age && age <= 7) {
-         System.out.print("À¯¾Æ");
+         System.out.print("ìœ ì•„");
       } else if (8 <= age && age <= 13) {
-         System.out.print("ÃÊµîÇĞ»ı");
+         System.out.print("ì´ˆë“±í•™ìƒ");
       } else if (14 <= age && age <= 16) {
-         System.out.print("ÁßÇĞ»ı");
+         System.out.print("ì¤‘í•™ìƒ");
       } else if (17 <= age && age <= 19) {
-         System.out.print("°íµîÇĞ»ı");
+         System.out.print("ê³ ë“±í•™ìƒ");
       } else {
-         System.out.print("¼ºÀÎ");
+         System.out.print("ì„±ì¸");
       }
       
       scanner.close();

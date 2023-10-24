@@ -1,10 +1,10 @@
-package first_java;
+package java1;
 import java.util.Scanner;
 
 public class Prac203 {
    public static void main(String[] args) {
       Scanner scanner = new Scanner(System.in);
-      System.out.println("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+      System.out.println("Â¼Ã½Ã€ÃšÂ¸Â¦ Ã€Ã”Â·Ã‚Ã‡ÃÂ¼Â¼Â¿Ã¤");
       
       int N = scanner.nextInt();
       

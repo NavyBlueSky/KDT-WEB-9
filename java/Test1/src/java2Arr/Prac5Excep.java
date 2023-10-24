@@ -1,5 +1,4 @@
-package first_java;
-
+package java2Arr;
 public class Prac5Excep {
 
 	public static void main(String[] args) {

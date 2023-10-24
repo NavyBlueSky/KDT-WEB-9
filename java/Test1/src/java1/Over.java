@@ -1,23 +1,23 @@
-package first_java;
+package java1;
 
 public class Over {
 	
-	//ÀÚ¹Ù½ºÅ©¸³Æ®
+	//ìë°”ìŠ¤í¬ë¦½íŠ¸
 	//function a( a, b, c = 0) {}
 	//a(1, 2)
 	
-	//¸Ş¼Òµå ¿À¹ö·Îµù
-	//Á¤¼ö µÎ°³¸¦ ´õÇÏ´Â ¸Ş¼Òµå
+	//ë©”ì†Œë“œ ì˜¤ë²„ë¡œë”©
+	//ì •ìˆ˜ ë‘ê°œë¥¼ ë”í•˜ëŠ” ë©”ì†Œë“œ
 	public int add(int a, int b) {
 		return a + b;
 	}
 	
-	//½Ç¼ö µÎ°³¸¦ ´õÇÏ´Â ¸Ş¼Òµå
+	//ì‹¤ìˆ˜ ë‘ê°œë¥¼ ë”í•˜ëŠ” ë©”ì†Œë“œ
 	public double add(double a, double b) {
 		return a + b;
 	}
 	
-	//Á¤¼ö ¼¼°³¸¦ ´õÇÏ´Â ¸Ş¼Òµå
+	//ì •ìˆ˜ ì„¸ê°œë¥¼ ë”í•˜ëŠ” ë©”ì†Œë“œ
 	public int add(int a, int b, int c) {
 		return a + b + c;
 	}

@@ -1,4 +1,4 @@
-package first_java;
+package java2Arr;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 

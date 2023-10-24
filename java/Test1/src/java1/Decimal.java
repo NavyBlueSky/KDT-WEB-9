@@ -1,4 +1,4 @@
-package first_java;
+package java1;
 import java.math.BigDecimal;
 
 public class Decimal {
@@ -8,10 +8,10 @@ public class Decimal {
 		BigDecimal a = new BigDecimal("0.2");
 		BigDecimal b = new BigDecimal("0.1");
 		
-		BigDecimal sum = a.add(b); //µ¡¼À
-		BigDecimal diff = a.subtract(b); //»¬¼À
-		BigDecimal multi = a.multiply(b); //°ö
-		BigDecimal divid = a.divide(b); //³ª´°¼À
+		BigDecimal sum = a.add(b); //
+		BigDecimal diff = a.subtract(b); //
+		BigDecimal multi = a.multiply(b); //
+		BigDecimal divid = a.divide(b); //
 		
 		System.out.println(sum);
 		System.out.println(diff);

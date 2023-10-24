@@ -1,5 +1,4 @@
-package first_java;
-
+package java2Arr;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -26,5 +25,7 @@ public class Prac5Exception {
 		} catch (InputMismatchException e) {
 			System.out.println("양수가 아닙니다.");
 		}
+		
+		scan.close();
 	}
 }

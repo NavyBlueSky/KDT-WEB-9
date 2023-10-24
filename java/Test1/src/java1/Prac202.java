@@ -1,23 +1,23 @@
-package first_java;
+package java1;
 import java.util.Scanner;
 
 public class Prac202 {
 
    public static void main(String[] args) {
       Scanner scanner = new Scanner(System.in);
-      System.out.println("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+      System.out.println("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
       String num = scanner.nextLine();
       
 
 		switch(num) {
-		case "È«±æµ¿":
-			System.out.println("³²ÀÚ");
+		case "í™ê¸¸ë™":
+			System.out.println("ë‚¨ì");
 			break;
-		case "¼ºÃáÇâ":
-			System.out.println("¿©ÀÚ");
+		case "ì„±ì¶˜í–¥":
+			System.out.println("ì—¬ì");
 			break;
 		default: 
-			System.out.println("¸ô¶ó");
+			System.out.println("ëª°ë¼");
 		}
 		scanner.close();
 	
