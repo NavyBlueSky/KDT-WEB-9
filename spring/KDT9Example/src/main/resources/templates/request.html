@@ -300,5 +300,37 @@
         <button type="button" onclick="voResponse5();">Post ( VO ) - axios ( RequestBody O )</button>
     </form>
 </div>
+
+<script>
+    function voPracResponse1() {
+        var form = document.getElementById('pracForm');
+        axios.post(`/axios/vo/prac`, {name: form.name.value, age: form.age.value})
+        .then((res)=>{
+            console.log( res.data, '회원가입 성공' );
+        });
+    }
+</script>
+
+<hr>
+<form id="pracForm" style="margin-right: 20px;">
+    <h3>실습 동적폼</h3>
+    <span>이름 <input type="text" name="name"></span>
+    <legend>성별</legend>
+    <input type="radio" id="man" name="age" value="남성">
+    <label for="man">남성</label>
+    <input type="radio" id="woman" name="age" value="여성">
+    <label for="woman">여성</label>
+    <legend>생년월일</legend>
+    <input type="date" name="date" />
+    <legend>관심사</legend>
+    <input type="checkbox" id="trip" name="hobby" value="여행">
+    <label for="trip">여행</label>
+    <input type="checkbox" id="fa" name="hobby" value="패션">
+    <label for="fa">패션</label>
+    <input type="checkbox" id="food" name="hobby" value="음식">
+    <label for="food">음식</label>
+    <button type="button" onclick="voPracResponse1();">전송</button>
+</form>
+<hr>
 </body>
 </html>

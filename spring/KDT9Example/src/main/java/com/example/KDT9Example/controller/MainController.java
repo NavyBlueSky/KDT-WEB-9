@@ -76,6 +76,8 @@ public class MainController {
         return "response";
     }
 
+
+    ////실습/////////////////////////
     @PostMapping("/postForm")
 //    @ResponseBody
     public String postPrac4(@RequestParam(required = false) String name, String gender, String date, String hobby, Model model) {
@@ -176,4 +178,84 @@ public class MainController {
 
     ///////////////실습끝/////////////////
 
+    @GetMapping("/axios/response1")
+    @ResponseBody
+    public String axiosResponse1(@RequestParam String name, @RequestParam String age) {
+        //axios get 전송일 때, @RequestParam으로 값을 전달받을 수 있다.
+        String msg = "이름: " + name + " , 나이: " + age;
+        return msg;
+    }
+
+    @GetMapping("/axios/response2")
+    @ResponseBody
+    public String axiosResponse2(UserDTO userDTO) {
+        //axios get 전송일 때, @ModelAttribute으로 값을 전달받을 수 있다.(=set 함수가 있는 객체)
+        String msg = "이름: " + userDTO.getName() + " , 나이: " + userDTO.getAge();
+        return msg;
+    }
+
+    //ModelAttribute 와 @RequestParam의 특징
+    // 일반폼 전송 -> 파라미터 형태로 들어와요.
+    // json으로 값을 보내면 파라미터x 데이터o
+    @PostMapping("/axios/response3")
+    @ResponseBody
+    public String axiosResponse3(@RequestParam String name, @RequestParam String age) {
+        // axios post는 @RequestParam으로 못 받는다.
+        String msg = "이름: " + name + " , 나이: " + age;
+        return msg;
+    }
+    @PostMapping("/axios/response4")
+    @ResponseBody
+    public String axiosResponse4(UserDTO userDTO) {
+        String msg = "이름: " + userDTO.getName() + " , 나이: " + userDTO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/response5")
+    @ResponseBody
+    public String axiosResponse5(@RequestBody UserDTO userDTO) {
+        String msg = "이름: " + userDTO.getName() + " , 나이: " + userDTO.getAge();
+        return msg;
+    }
+
+    //////////
+    @GetMapping("/axios/vo/response1")
+    @ResponseBody
+    public String axiosVoResponse1(@RequestParam(value="name") String name, @RequestParam(value="age") String age) {
+        String msg = "이름: " + name + " , \n나이: " + age;
+        return msg;
+    }
+    @GetMapping("/axios/vo/response2")
+    @ResponseBody
+    public String axiosVoResponse2( UserVO userVO) {
+        String msg = "이름: " + userVO.getName() + " , \n나이: " + userVO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/vo/response3")
+    @ResponseBody
+    public String axiosVoResponse3(@RequestParam(value="name") String name, @RequestParam(value="age") String age) {
+        String msg = "이름: " + name + " , \n나이: " + age;
+        return msg;
+    }
+    @PostMapping("/axios/vo/response4")
+    @ResponseBody
+    public String axiosVoResponse4( UserVO userVO) {
+        String msg = "이름: " + userVO.getName() + " , \n나이: " + userVO.getAge();
+        return msg;
+    }
+    @PostMapping("/axios/vo/response5")
+    @ResponseBody
+    public String axiosVoResponse5(@RequestBody UserVO userVO) {
+        //ModelAttribute는 setter함수를 실행해 값을 넣어주는 친구
+        //RequestBody는 setter함수가 아닌 각가의 필드에 직접적으로 값을 주입하면서 매핑
+        String msg = "이름: " + userVO.getName() + " , \n나이: " + userVO.getAge();
+        return msg;
+    }
+//////////////////////실습/////////////////////////
+
+    @PostMapping("/axios/vo/prac")
+    @ResponseBody
+    public String voPrac(@RequestBody UserVO userVO) {
+        String msg = userVO.getName();
+        return msg;
+    }
 }
