@@ -48,4 +48,14 @@ public class UserJdbcRepository {
     //execute(): 반환값이 없는 SQL명령을 실행
     //queryForMap(): 단 하나의 행만 반환, 해당 데이터를 Map형태로 반환
     //queryForInt(): 단일 값 반환. 반환 값으로 int 형태 데이터(select count(*) from ___)
+
+    //SQL Mapper
+    // - sql 쿼리와 java 메서드/객체 간 매핑을 중심으로 함.
+    // - sql 쿼리를 직접 작성
+    // - sql 쿼리를 세밀한 튜닝이 필요할 때 유용.
+
+    //ORM
+    // - java 객체와 데이터베이스 테이블간의 관계매핑을 중심으로 함
+    // - Entity를 이용하여 db테이블과 어떻게 매핑될지를 정의함
+    // - CRUD연산에 대한 SQL을 자동으로 생성
 }
