@@ -2,16 +2,21 @@ package com.crud.crudtest.service;
 
 
 import com.crud.crudtest.domain.Person;
+import com.crud.crudtest.domain.PersonEntity;
 import com.crud.crudtest.dto.PersonDTO;
 import com.crud.crudtest.mapper.PersonMapper;
+import com.crud.crudtest.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class PersonService {
 
     @Autowired
-    private PersonMapper personMapper;
+    //private PersonMapper personMapper;
+    private PersonRepository personRepository;
 
 
     public void insertPerson(PersonDTO personDTO) {
@@ -36,12 +41,14 @@ public class PersonService {
 
     //회원정보 조회
     public PersonDTO getPersonData(long id) {
-        Person person = personMapper.getPersonData(id);
+//        Person person = personMapper.getPersonData(id);
+        Optional<PersonEntity> person = personRepository.findById(id);
+        System.out.println();
 
         PersonDTO data = new PersonDTO();
-        data.setUser_id( person.getUser_id() );
-        data.setName( person.getName());
-        data.setPassword( person.getPassword());
+        data.setUser_id( person.get().getUser_id() );
+        data.setName( person.get().getName());
+        data.setPassword( person.get().getPassword());
 
         return data;
     }
